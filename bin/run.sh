@@ -1,9 +1,41 @@
+cd "$(dirname "$0")"  # 进入该文件所在的文件夹
+BASE_DIR=.
 APP_NAME="ming-tools"
-BASE_DIR=$(dirname $0)
 APP_JAR="${BASE_DIR}/lib/ming-tools.jar"
 
 JAVA_OPT=""
 SPRING_BOOT_OPT="--spring.config.location=${BASE_DIR}/conf/application.yaml"
 
-nohup java -jar ${JAVA_OPT} ${APP_JAR} ${SPRING_BOOT_OPT} > ${APP_NAME}.log &
+java -jar ${JAVA_OPT} ${APP_JAR} ${SPRING_BOOT_OPT} > ${APP_NAME}_start.out &
+
+## 判断操作系统
+pl=echo
+if [[ "$(uname)"=="Darwin" ]]
+then
+    # Mac OS X 操作系统
+    pl=/bin/echo
+fi
+num=1
+while [ -f ${APP_NAME}_start.out ]
+do
+    result=`grep "Started application"  ${APP_NAME}_start.out`
+    if [[ "$result" != "" ]]
+    then
+        ${pl} ""
+        ${pl} ${result}
+        ${pl} "应用启动完成！"
+        break
+    else
+        if [ $num -eq 1 ]
+        then
+            ${pl} -n "正在启动.."
+            ((num++))
+        else
+            ${pl} -n ".."
+        fi
+        sleep 1s
+    fi
+done
+
+
 exit 1
