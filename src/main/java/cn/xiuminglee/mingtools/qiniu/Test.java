@@ -1,5 +1,6 @@
 package cn.xiuminglee.mingtools.qiniu;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
  * @description
  */
 @Component
+@Slf4j
 public class Test {
 
     private Environment environment;
@@ -17,6 +19,7 @@ public class Test {
     }
 
     public void testEnv(){
+        log.info("日志测试");
         System.out.println(environment.getProperty("ming.test"));
         System.out.println(environment.getProperty("ming.test2"));
     }

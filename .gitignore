@@ -24,3 +24,6 @@ build/
 
 ### VS Code ###
 .vscode/
+### Other ###
+/src/main/resources/application-dev.yaml
+/logs/
