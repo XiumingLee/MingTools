@@ -1,7 +1,8 @@
 package cn.xiuminglee.tools.modules.home.view;
 
-import cn.xiuminglee.tools.core.bean.AbstractController;
+import cn.xiuminglee.tools.core.bean.FXMLController;
 import cn.xiuminglee.tools.core.bean.annotation.FXMLView;
+import cn.xiuminglee.tools.modules.qiniu.Test;
 import cn.xiuminglee.tools.modules.test.Test1;
 import cn.xiuminglee.tools.modules.test.Test2;
 import cn.xiuminglee.tools.util.SpringContextHolder;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
@@ -19,10 +21,10 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @FXMLView(fxmlPath = "fxml/home/home.fxml")
-public class HomeController extends AbstractController<HomeController> {
+public class HomeController implements FXMLController {
 
-    //@Autowired
-    //private Test1 test1;
+    @Autowired
+    private Test test;
 
 
     @FXML
@@ -35,6 +37,7 @@ public class HomeController extends AbstractController<HomeController> {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         Test1 test1 = SpringContextHolder.getBean(Test1.class);
+        test.testEnv();
         testPane.getChildren().clear();
         testPane.getChildren().add(test1.test1Pane);
     }
