@@ -1,4 +1,4 @@
-package cn.xiuminglee.mingtools.config.properties;
+package cn.xiuminglee.tools.core.config.properties;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
-package cn.xiuminglee.mingtools.config;
+package cn.xiuminglee.tools.core.config;
 
-import cn.xiuminglee.mingtools.config.properties.MingToolsProperties;
+import cn.xiuminglee.tools.core.config.properties.MingToolsProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 

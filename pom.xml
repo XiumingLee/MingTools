@@ -125,7 +125,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>cn.xiuminglee.mingtools.MingToolsApplication</mainClass>
+                    <mainClass>cn.xiuminglee.tools.MingToolsApplication</mainClass>
                     <outputDirectory>${project.build.directory}/lib</outputDirectory>
                 </configuration>
             </plugin>

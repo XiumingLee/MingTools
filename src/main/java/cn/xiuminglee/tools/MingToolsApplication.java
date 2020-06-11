@@ -1,4 +1,4 @@
-package cn.xiuminglee.mingtools;
+package cn.xiuminglee.tools;
 
 import javafx.application.Application;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

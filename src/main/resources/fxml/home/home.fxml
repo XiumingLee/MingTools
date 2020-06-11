@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@css/home.css"
+            prefHeight="800.0" prefWidth="800.0"
+            fx:id="anchorPane">
+    <children>
+        <Button layoutX="10" layoutY="10" onAction="#handleButtonAction" text="切换到test1" />
+        <Button layoutX="30" layoutY="10" onAction="#handleButtonAction2" text="切换到test2" />
+        <!--<Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />-->
+        <Pane layoutX="10" layoutY="400" fx:id="testPane">
+
+        </Pane>
+    </children>
+
+</AnchorPane>
