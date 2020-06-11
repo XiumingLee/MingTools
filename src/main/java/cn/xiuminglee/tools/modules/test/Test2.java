@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
  * @description
  */
 @FXMLView(fxmlPath = "fxml/test/test2.fxml")
-public class Test2 implements FXMLController {
+public class Test2 extends FXMLController {
     public Label label;
     public AnchorPane test2Pane;
 

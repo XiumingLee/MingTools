@@ -1,10 +1,11 @@
 package cn.xiuminglee.tools;
 
 import cn.xiuminglee.tools.modules.home.view.HomeController;
-import cn.xiuminglee.tools.modules.home.view.HomeViewInit;
 import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.application.Platform;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -41,13 +42,11 @@ public class MingToolsFXApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //primaryStage.setTitle("MingTools工具包");
-        //primaryStage.getIcons().add(new Image("assets/img/app/tools.png"));
-        //Scene scene = new Scene(homeController.anchorPane);
-        //primaryStage.setScene(scene);
-        HomeViewInit home = new HomeViewInit();
-        home.initView();
-        //primaryStage.show();
+        primaryStage.setTitle("MingTools工具包");
+        primaryStage.getIcons().add(new Image("assets/img/app/tools.png"));
+        Scene scene = new Scene(homeController.homePane);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     @Override

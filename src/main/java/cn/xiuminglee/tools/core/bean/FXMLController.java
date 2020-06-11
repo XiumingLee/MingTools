@@ -1,6 +1,9 @@
 package cn.xiuminglee.tools.core.bean;
 
 import cn.xiuminglee.tools.core.bean.annotation.FXMLView;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 /**
  * @author Xiuming Lee
@@ -10,6 +13,18 @@ import cn.xiuminglee.tools.core.bean.annotation.FXMLView;
  * @see FXMLViewInspector
  * @see FXMLControllerRegistrar
  */
-public interface FXMLController {
+public abstract class FXMLController implements ApplicationContextAware {
 
+    protected ApplicationContext applicationContext;
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
+
+    /**
+     * 代替JavaFx中FXMLController的initialize()方法。
+     * 最一些初始化操作
+     */
+     protected void initController(){};
 }

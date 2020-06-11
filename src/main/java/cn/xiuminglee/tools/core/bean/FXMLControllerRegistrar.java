@@ -26,6 +26,14 @@ import java.io.IOException;
 @Component
 @Slf4j
 public class FXMLControllerRegistrar implements BeanPostProcessor {
+
+    /**
+     * 移花接木注册FXMLController
+     * @param bean
+     * @param beanName
+     * @return
+     * @throws BeansException
+     */
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         Class<?> beanClass = bean.getClass();
@@ -44,5 +52,22 @@ public class FXMLControllerRegistrar implements BeanPostProcessor {
         } else {
             return bean;
         }
+    }
+
+    /**
+     * 执行FXMLController的initController方法
+     * @param bean
+     * @param beanName
+     * @return
+     * @throws BeansException
+     */
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        Class<?> beanClass = bean.getClass();
+        if (beanClass.isAnnotationPresent(FXMLView.class)) {
+            FXMLController controller = (FXMLController)bean;
+            controller.initController();
+        }
+        return bean;
     }
 }

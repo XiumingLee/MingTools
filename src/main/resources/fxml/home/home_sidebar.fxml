@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      layoutX="1" layoutY="1" prefWidth="1166" prefHeight="818"
+      fx:id="homeSidebarPane"
+      stylesheets="@css/home_sidebar.css">
+    <!-- 搜索栏 -->
+    <Pane prefHeight="80" prefWidth="314" styleClass="search">
+        <TextField layoutX="20" layoutY="30" prefHeight="30" prefWidth="240" promptText="搜索" styleClass="searchInput">
+            <!--<padding>-->
+            <!--    <Insets left="30" />-->
+            <!--</padding>-->
+        </TextField>
+        <Label layoutX="270" layoutY="30" prefHeight="30" prefWidth="30" styleClass="searchAdd" />
+    </Pane>
+    <!-- 会话栏 -->
+    <Pane id="talk" layoutY="80" prefHeight="738" prefWidth="314">
+        <ListView id="talkList" prefHeight="738" prefWidth="314" styleClass="talkListStyle"/>
+    </Pane>
+</Pane>
