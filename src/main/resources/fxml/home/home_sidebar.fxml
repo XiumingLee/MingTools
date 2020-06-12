@@ -6,22 +6,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+
+<!--          fx:controller="cn.xiuminglee.tools.modules.home.view.HomeSidebarController"     -->
 <Pane xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      layoutX="1" layoutY="1" prefWidth="1166" prefHeight="818"
+      layoutX="1" layoutY="1"
       fx:id="homeSidebarPane"
       stylesheets="@css/home_sidebar.css">
     <!-- 搜索栏 -->
-    <Pane prefHeight="80" prefWidth="314" styleClass="search">
-        <TextField layoutX="20" layoutY="30" prefHeight="30" prefWidth="240" promptText="搜索" styleClass="searchInput">
-            <!--<padding>-->
-            <!--    <Insets left="30" />-->
-            <!--</padding>-->
+    <Pane fx:id="homeSidebar_search_pane" prefHeight="${homeSidebarPane.width}" prefWidth="${homeSidebarPane.width}" styleClass="search">
+        <TextField layoutX="20" layoutY="30" prefHeight="30" prefWidth="${homeSidebar_search_pane.width * 0.8}" promptText="搜索" styleClass="searchInput">
         </TextField>
-        <Label layoutX="270" layoutY="30" prefHeight="30" prefWidth="30" styleClass="searchAdd" />
+        <Label layoutX="${homeSidebar_search_pane.width * 0.8 + 20}" layoutY="30" prefHeight="30" prefWidth="30" styleClass="searchAdd" />
     </Pane>
     <!-- 会话栏 -->
     <Pane id="talk" layoutY="80" prefHeight="738" prefWidth="314">
-        <ListView id="talkList" prefHeight="738" prefWidth="314" styleClass="talkListStyle"/>
+        <ListView fx:id="toolList" prefHeight="738" prefWidth="314" styleClass="toolListStyle">
+            <HBox prefWidth="200" prefHeight="50" styleClass="toolElement">
+                <Label prefWidth="50" prefHeight="50"
+                       style="-fx-background-image: url(/fxml/home/img/tool/04_100.png)"
+                       styleClass="element_toolIcon">
+                </Label>
+                <Label prefWidth="140" prefHeight="50"
+                       styleClass="element_toolName">
+                    应用名称
+                </Label>
+            </HBox>
+        </ListView>
     </Pane>
 </Pane>

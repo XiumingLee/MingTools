@@ -1,5 +1,6 @@
 package cn.xiuminglee.tools;
 
+import cn.xiuminglee.tools.modules.Constant;
 import cn.xiuminglee.tools.modules.home.view.HomeController;
 import javafx.application.Application;
 import javafx.application.HostServices;
@@ -43,7 +44,7 @@ public class MingToolsFXApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("MingTools工具包");
-        primaryStage.getIcons().add(new Image("assets/img/app/tools.png"));
+        primaryStage.getIcons().add(new Image(Constant.System.SYSTEM_ICON));
         Scene scene = new Scene(homeController.homePane);
         primaryStage.setScene(scene);
         primaryStage.show();

@@ -17,6 +17,7 @@
     <properties>
         <java.version>11</java.version>
         <javafx.version>11</javafx.version>
+        <bootstrapfx.version>0.2.4</bootstrapfx.version>
     </properties>
 
     <dependencies>
@@ -41,6 +42,12 @@
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+
+        <!--<dependency>-->
+        <!--    <groupId>org.kordamp.bootstrapfx</groupId>-->
+        <!--    <artifactId>bootstrapfx-core</artifactId>-->
+        <!--    <version>${bootstrapfx.version}</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

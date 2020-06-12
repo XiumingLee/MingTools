@@ -23,5 +23,8 @@ public class HomeController extends FXMLController {
     public void initController() {
         HomeSidebarController homeSidebarController = applicationContext.getBean(HomeSidebarController.class);
         homeSidebar.getChildren().add(homeSidebarController.homeSidebarPane);
+        /** 属性绑定，用于自适应 */
+        homeSidebarController.homeSidebarPane.prefWidthProperty().bind(homeSidebar.widthProperty());
+        homeSidebarController.homeSidebarPane.prefHeightProperty().bind(homeSidebar.heightProperty());
     }
 }

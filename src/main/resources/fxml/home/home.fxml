@@ -4,14 +4,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="homePane" prefHeight="820.0" prefWidth="1243.0" stylesheets="@css/home.css"
-      xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<!--       fx:controller="cn.xiuminglee.tools.modules.home.view.HomeController"      -->
+<Pane fx:id="homePane"
+      stylesheets="@css/home.css"
+      xmlns="http://javafx.com/javafx/10.0.2-internal"
+      minWidth="1100"
+      minHeight="800"
+      xmlns:fx="http://javafx.com/fxml/1">
     <!--存放左侧边栏-->
-    <Pane fx:id="homeSidebar">
-
-    </Pane>
+    <Pane fx:id="homeSidebar" prefWidth="${homePane.width * 0.2}" prefHeight="${homePane.height}"/>
     <!--存放右侧工具界面-->
-    <Pane fx:id="homeContent">
-
-    </Pane>
+    <Pane fx:id="homeContent"/>
 </Pane>
