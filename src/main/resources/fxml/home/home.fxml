@@ -5,14 +5,41 @@
 <?import javafx.scene.layout.*?>
 
 <!--       fx:controller="cn.xiuminglee.tools.modules.home.view.HomeController"      -->
-<Pane fx:id="homePane"
-      stylesheets="@css/home.css"
-      xmlns="http://javafx.com/javafx/10.0.2-internal"
-      minWidth="1100"
-      minHeight="800"
-      xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane id="home_box"
+            fx:id="homePane"
+            minHeight="800"
+            minWidth="1100"
+            stylesheets="@css/home.css"
+            xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane id="nav" fx:id="nav" layoutX="1" prefHeight="25" prefWidth="${homePane.width - 2}" styleClass="nav_box">
+        <HBox alignment="CENTER" prefHeight="${nav.height}" prefWidth="${nav.width}">
+            <Label prefHeight="20" prefWidth="20" styleClass="nav_icon">
+                <HBox.margin>
+                    <Insets right="10.0"/>
+                </HBox.margin>
+            </Label>
+            <Label>
+                MingTools工具包
+            </Label>
+
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" prefHeight="${nav.height}" prefWidth="${nav.width}">
+            <Label prefHeight="17" prefWidth="17" onMouseClicked="#minWindow" styleClass="min">
+                <HBox.margin>
+                    <Insets right="6.0"/>
+                </HBox.margin>
+            </Label>
+            <Label prefHeight="17" prefWidth="17" onMouseClicked="#closeWindow" styleClass="close">
+                <HBox.margin>
+                    <Insets right="10.0"/>
+                </HBox.margin>
+            </Label>
+        </HBox>
+    </AnchorPane>
     <!--存放左侧边栏-->
-    <Pane fx:id="homeSidebar" prefWidth="${homePane.width * 0.2}" prefHeight="${homePane.height}"/>
+    <!--<Pane fx:id="homeSidebar" prefWidth="${homePane.width * 0.2}" prefHeight="${homePane.height}"/>-->
     <!--存放右侧工具界面-->
-    <Pane fx:id="homeContent"/>
-</Pane>
+    <!--<Pane fx:id="homeContent"/>-->
+</AnchorPane>

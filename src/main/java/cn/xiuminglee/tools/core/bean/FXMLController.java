@@ -1,6 +1,7 @@
 package cn.xiuminglee.tools.core.bean;
 
 import cn.xiuminglee.tools.core.bean.annotation.FXMLView;
+import javafx.stage.Stage;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -15,6 +16,11 @@ import org.springframework.context.ApplicationContextAware;
  */
 public abstract class FXMLController implements ApplicationContextAware {
 
+    /** 该FXMLController控制的那个Window窗口
+     * 需要使用时，通过set注入即可。
+     */
+    protected Stage stage;
+
     protected ApplicationContext applicationContext;
 
     @Override
@@ -27,4 +33,8 @@ public abstract class FXMLController implements ApplicationContextAware {
      * 最一些初始化操作
      */
      protected void initController(){};
+
+    public void setWindow(Stage stage) {
+        this.stage = stage;
+    }
 }

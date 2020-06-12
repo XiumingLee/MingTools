@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <javafx.version>11</javafx.version>
+        <javafx.version>13</javafx.version>
         <bootstrapfx.version>0.2.4</bootstrapfx.version>
     </properties>
 

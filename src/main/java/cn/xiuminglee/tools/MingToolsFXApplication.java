@@ -1,12 +1,10 @@
 package cn.xiuminglee.tools;
 
-import cn.xiuminglee.tools.modules.Constant;
 import cn.xiuminglee.tools.modules.home.view.HomeController;
+import cn.xiuminglee.tools.modules.home.view.HomeViewInit;
 import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.application.Platform;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -16,7 +14,7 @@ import org.springframework.context.support.GenericApplicationContext;
 
 /**
  * @author Xiuming Lee
- * @description
+ * @description 请启动 {@link MingToolsApplication#main(String[])}
  */
 public class MingToolsFXApplication extends Application {
 
@@ -43,15 +41,13 @@ public class MingToolsFXApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("MingTools工具包");
-        primaryStage.getIcons().add(new Image(Constant.System.SYSTEM_ICON));
-        Scene scene = new Scene(homeController.homePane);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        HomeViewInit homeViewInit = new HomeViewInit();
+        homeViewInit.initView();
     }
 
     @Override
     public void stop() throws Exception {
+        System.out.println("调用了Stop方法");
         this.context.close();
         Platform.exit();
     }

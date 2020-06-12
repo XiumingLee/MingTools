@@ -1,6 +1,10 @@
 package cn.xiuminglee.tools.modules.home.view;
 
 import cn.xiuminglee.tools.modules.AbstractUiObject;
+import cn.xiuminglee.tools.util.SpringContextHolder;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.stage.StageStyle;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -11,25 +15,27 @@ import lombok.extern.slf4j.Slf4j;
 public class HomeViewInit extends AbstractUiObject {
 
     public HomeViewInit() {
-        //try {
-        //    root = FXMLLoader.load(getClass().getClassLoader().getResource(RESOURCE_NAME));
-        //} catch (IOException e) {
-        //    log.error("加载登录页fxml文件失败！",e);
-        //}
-        //HomeController homeController = SpringContextHolder.getBean(HomeController.class);
-        //Scene scene = new Scene(homeController.anchorPane);
-        //setScene(scene);
-        //setTitle("MingTools工具包");
-        //getIcons().add(new Image("assets/img/app/tools.png"));
+        HomeController homeController = SpringContextHolder.getBean(HomeController.class);
+        homeController.setWindow(this);
+        setWidth(1100);
+        setHeight(800);
+        initStyle(StageStyle.TRANSPARENT);
+        // 设置不可最大化，不可拉伸
+        setResizable(false);
+        root = homeController.homePane;
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        setScene(scene);
     }
 
     @Override
     public void initView() {
-        //show();
+        show();
+        initEventDefine();
     }
 
     @Override
     public void initEventDefine() {
-
+        move();
     }
 }
