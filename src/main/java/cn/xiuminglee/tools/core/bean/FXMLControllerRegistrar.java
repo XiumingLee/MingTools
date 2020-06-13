@@ -16,15 +16,12 @@ import java.io.IOException;
  *
  * 这种移花接木的方式注册Bean，解决了`使用FactoryBean方式注册FXMLController到Spring容器` 的问题
  *
- * 注意点：FXMLController之间最好不要使用Spring的自动注入，因为我们可能希望，每次打开某个页面都是重新加载的，而不是保留了
- * 上一次的编辑内容。如果使用FXMLController之间使用Spring的自动注入，可能会造成，你关闭了一个页面，重新打开时，发现还保留着
- * 上次的编辑内容，如果有这种需求可能使用。
- * 推荐的做法：使用 {@link cn.xiuminglee.tools.util.SpringContextHolder#getBean(Class)}，从容器中获取一个
- * 最原始的FXMLController。
+ * 当Bean是`@Scope("prototype")`时，Spring启动时如果没有使用Bean，不会创建，再使用时才会创建，在创建原型Bean时，还是会
+ * 调用BeanPostProcessor的方法。
  *
  */
-@Component
 @Slf4j
+@Component
 public class FXMLControllerRegistrar implements BeanPostProcessor {
 
     /**
@@ -38,6 +35,7 @@ public class FXMLControllerRegistrar implements BeanPostProcessor {
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         Class<?> beanClass = bean.getClass();
         if (beanClass.isAnnotationPresent(FXMLView.class)) {
+            beanFXMLControllerVerifier(bean,beanName);
             try {
                 FXMLView annotation = beanClass.getAnnotation(FXMLView.class);
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(annotation.fxmlPath()));
@@ -69,5 +67,15 @@ public class FXMLControllerRegistrar implements BeanPostProcessor {
             controller.initController();
         }
         return bean;
+    }
+
+    /**
+     * 对FXMLController校验，校验是否符合规则。
+     */
+    private void beanFXMLControllerVerifier(Object bean, String beanName){
+        if (!(bean instanceof FXMLController)){
+            log.error("FXMLView注解必须注解在FXMLController的实现类上，{}：{}不是FXMLController的实现类！",beanName,bean.getClass().getName());
+            throw new RuntimeException("FXMLView注解必须注解在FXMLController的实现类上，" + beanName + "：" + bean.getClass().getName() + "不是FXMLController的实现类！");
+        }
     }
 }

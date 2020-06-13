@@ -14,24 +14,8 @@
             xmlns="http://javafx.com/javafx/10.0.2-internal"
             xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane id="nav" fx:id="nav" layoutX="1" prefHeight="25" prefWidth="${homePane.width - 2}" styleClass="nav_box">
-        <HBox alignment="CENTER" prefHeight="${nav.height}" prefWidth="${nav.width}">
+        <HBox prefHeight="${nav.height}" prefWidth="${nav.width}">
             <Label prefHeight="20" prefWidth="20" styleClass="nav_icon">
-                <HBox.margin>
-                    <Insets right="10.0"/>
-                </HBox.margin>
-            </Label>
-            <Label>
-                MingTools工具包
-            </Label>
-
-        </HBox>
-        <HBox alignment="CENTER_RIGHT" prefHeight="${nav.height}" prefWidth="${nav.width}">
-            <Label prefHeight="17" prefWidth="17" onMouseClicked="#minWindow" styleClass="min">
-                <HBox.margin>
-                    <Insets right="6.0"/>
-                </HBox.margin>
-            </Label>
-            <Label prefHeight="17" prefWidth="17" onMouseClicked="#closeWindow" styleClass="close">
                 <HBox.margin>
                     <Insets right="10.0"/>
                 </HBox.margin>

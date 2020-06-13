@@ -6,7 +6,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
-import org.springframework.stereotype.Component;
 
 /**
  * @author Xiuming Lee
@@ -16,7 +15,8 @@ import org.springframework.stereotype.Component;
  * @see FXMLControllerRegistrar
  */
 @Slf4j
-@Component
+//@Component
+@Deprecated
 public class FXMLViewInspector implements BeanDefinitionRegistryPostProcessor {
 
     @Override
@@ -26,6 +26,9 @@ public class FXMLViewInspector implements BeanDefinitionRegistryPostProcessor {
 
     /**
      * 用于检测FXMLView注解标记的是否正确，FXMLView注解必须注解再AbstractController的实现类上
+     *
+     * 疑问：在单例模式下，实现了该方法，BeanPostProcessor中的方法获取不到自定义注解(继承了@Component注解的注解)？？。
+     *      已将以下方法移到了{@link FXMLControllerRegistrar}中校验
      * @param beanFactory
      * @throws BeansException
      */
@@ -34,6 +37,7 @@ public class FXMLViewInspector implements BeanDefinitionRegistryPostProcessor {
         String[] beanNames = beanFactory.getBeanNamesForAnnotation(FXMLView.class);
         if (beanNames!=null && beanNames.length>0) {
             for (String beanName : beanNames) {
+                System.out.println("------" + beanName);
                 /** Class<?> type = beanFactory.getType(beanName);*/
                 Object bean = beanFactory.getBean(beanName);
                 if (!(bean instanceof FXMLController)){

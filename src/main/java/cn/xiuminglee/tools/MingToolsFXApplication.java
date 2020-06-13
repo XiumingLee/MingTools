@@ -1,12 +1,10 @@
 package cn.xiuminglee.tools;
 
-import cn.xiuminglee.tools.modules.home.view.HomeController;
 import cn.xiuminglee.tools.modules.home.view.HomeViewInit;
 import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.application.Platform;
 import javafx.stage.Stage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -19,9 +17,6 @@ import org.springframework.context.support.GenericApplicationContext;
 public class MingToolsFXApplication extends Application {
 
     private ConfigurableApplicationContext context;
-
-    @Autowired
-    private HomeController homeController;
 
     @Override
     public void init() throws Exception {
