@@ -15,7 +15,7 @@
 }
 
 .searchInput:focused{
-    -fx-border-width: 2;
+    /*-fx-border-width: 1;*/
     -fx-border-color: #dbd9d8;
     -fx-border-radius:8px;
     -fx-background-color: #f6f6f5;
@@ -46,7 +46,7 @@
     -fx-background-color:transparent;
     -fx-border-color:transparent;
     -fx-background-radius: 0em;
-    -fx-border-radius:2em;
+    /*-fx-border-radius:2em;*/
 }
 
 .toolListStyle .scroll-bar:horizontal .increment-button,
@@ -65,7 +65,7 @@
 
 .toolListStyle .scroll-bar .increment-button,
 .toolListStyle .scroll-bar .decrement-button{
-    -fx-shape: " ";
+    -fx-shape: "";
     -fx-padding:0;
 }
 
@@ -106,11 +106,11 @@
 }
 
 
-.element_toolIcon{
+.element_toolIcon {
     -fx-background-position: center center;
     /*-fx-background-repeat: no-repeat;*/
     -fx-background-radius: 10px;
-    -fx-background-size: 50px 50px;
+    -fx-background-size: 30px 30px;
     -fx-background-color: white;
     -fx-background-image: url("/fxml/home/img/tool/tool_default_5050.png");
 }

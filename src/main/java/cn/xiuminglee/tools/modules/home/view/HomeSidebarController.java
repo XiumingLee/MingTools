@@ -2,8 +2,8 @@ package cn.xiuminglee.tools.modules.home.view;
 
 import cn.xiuminglee.tools.core.bean.FXMLController;
 import cn.xiuminglee.tools.core.bean.annotation.FXMLView;
-import cn.xiuminglee.tools.modules.home.element.ElementTool;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,7 +20,12 @@ public class HomeSidebarController extends FXMLController {
 
     @Override
     protected void initController() {
-        ElementTool elementTool = new ElementTool();
-        toolList.getItems().add(elementTool.getElement());
+        //ElementTool elementTool = new ElementTool();
+        //toolList.getItems().add(elementTool.getElement());
+    }
+
+    /** 去七牛云页面 */
+    public void toQiniuPage(MouseEvent mouseEvent) {
+        System.out.println("打开七牛页面");
     }
 }

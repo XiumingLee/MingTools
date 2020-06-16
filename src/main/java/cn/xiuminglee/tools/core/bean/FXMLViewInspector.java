@@ -37,7 +37,6 @@ public class FXMLViewInspector implements BeanDefinitionRegistryPostProcessor {
         String[] beanNames = beanFactory.getBeanNamesForAnnotation(FXMLView.class);
         if (beanNames!=null && beanNames.length>0) {
             for (String beanName : beanNames) {
-                System.out.println("------" + beanName);
                 /** Class<?> type = beanFactory.getType(beanName);*/
                 Object bean = beanFactory.getBean(beanName);
                 if (!(bean instanceof FXMLController)){

@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<!--          fx:controller="cn.xiuminglee.tools.modules.home.view.HomeSidebarController"     -->
+
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<!--          fx:controller="cn.xiuminglee.tools.modules.home.view.HomeSidebarController"     -->
-<Pane xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      layoutX="1" layoutY="1"
-      fx:id="homeSidebarPane"
-      stylesheets="@css/home_sidebar.css">
+<VBox fx:id="homeSidebarPane"
+      prefHeight="1100" prefWidth="200"
+      stylesheets="@css/home_sidebar.css" xmlns="http://javafx.com/javafx/10.0.2-internal"
+      xmlns:fx="http://javafx.com/fxml/1">
     <!-- 搜索栏 -->
-    <Pane fx:id="homeSidebar_search_pane" prefHeight="${homeSidebarPane.width}" prefWidth="${homeSidebarPane.width}" styleClass="search">
-        <TextField layoutX="20" layoutY="30" prefHeight="30" prefWidth="${homeSidebar_search_pane.width * 0.8}" promptText="搜索" styleClass="searchInput">
-        </TextField>
-        <Label layoutX="${homeSidebar_search_pane.width * 0.8 + 20}" layoutY="30" prefHeight="30" prefWidth="30" styleClass="searchAdd" />
-    </Pane>
+    <HBox fx:id="homeSidebar_search_pane" prefHeight="30" prefWidth="${homeSidebarPane.width}" styleClass="search">
+        <TextField prefHeight="30" promptText="搜索" styleClass="searchInput" />
+        <Label prefHeight="30" prefWidth="30" styleClass="searchAdd" />
+    </HBox>
     <!-- 会话栏 -->
-    <Pane id="talk" layoutY="80" prefHeight="738" prefWidth="314">
-        <ListView fx:id="toolList" prefHeight="738" prefWidth="314" styleClass="toolListStyle">
-            <HBox prefWidth="200" prefHeight="50" styleClass="toolElement">
-                <Label prefWidth="50" prefHeight="50"
-                       style="-fx-background-image: url(/fxml/home/img/tool/04_100.png)"
-                       styleClass="element_toolIcon">
+    <VBox prefHeight="1070" prefWidth="${homeSidebarPane.width}">
+        <ListView fx:id="toolList" prefHeight="1070" prefWidth="200" styleClass="toolListStyle">
+            <!-- 七牛云存储 -->
+            <HBox prefHeight="30" prefWidth="180" styleClass="toolElement" onMouseClicked="#toQiniuPage">
+                <Label prefHeight="30" prefWidth="30" style="-fx-background-image: url(/fxml/qiniu/img/qiniu.png)" styleClass="element_toolIcon">
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                        <Insets right="20.0" />
+                    </HBox.margin>
                 </Label>
-                <Label prefWidth="140" prefHeight="50"
-                       styleClass="element_toolName">
-                    应用名称
+                <Label prefHeight="30" prefWidth="120" styleClass="element_toolName">
+                    七牛云
+                </Label>
+            </HBox>
+
+            <HBox prefHeight="30" prefWidth="180" styleClass="toolElement">
+                <Label prefHeight="30" prefWidth="30" style="-fx-background-image: url(/fxml/qiniu/img/qiniu.png)" styleClass="element_toolIcon">
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                </Label>
+                <Label prefHeight="30" prefWidth="120" styleClass="element_toolName">
+                    其他
                 </Label>
             </HBox>
         </ListView>
-    </Pane>
-</Pane>
+    </VBox>
+</VBox>

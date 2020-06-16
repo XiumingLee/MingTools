@@ -1,16 +1,13 @@
 @import "home_nav.css";
 
 #home_box{
-    -fx-background-radius: 6px;
-    -fx-border-width: 1px;
-    -fx-border-radius: 6px;
-    -fx-border-color: rgb(180,180,180);
+    -fx-background-radius:0 0 6px 6px;
     -fx-background-color: white;
 }
 
-.button {
-    -fx-font-weight: bold;
+/* 分割线 */
+.split-pane *.split-pane-divider {
+    -fx-padding: 0 0 0 1; /* 0 3 0 3 */
 }
-#label{
-    -fx-text-fill: red;
-}
+
+
