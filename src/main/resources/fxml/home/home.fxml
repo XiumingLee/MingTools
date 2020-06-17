@@ -32,7 +32,7 @@
             <!--<Label>左侧</Label>-->
         </VBox>
 
-        <VBox fx:id="homeContent" minWidth="900" prefWidth="900" prefHeight="${homePane.height}">
+        <VBox alignment="CENTER" fx:id="homeContent" minWidth="900" prefWidth="900" prefHeight="${homePane.height}">
             <!--<Label>右侧</Label>-->
             <ImageView>
                 <Image url="/assets/img/app/back-image.png"/>

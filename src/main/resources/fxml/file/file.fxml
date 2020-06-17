@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--   fx:controller="cn.xiuminglee.tools.modules.file.view.FileController"   -->
+
+<VBox xmlns="http://javafx.com/javafx"
+            fx:id="fileBox"
+            alignment="CENTER"
+            prefHeight="700.0" prefWidth="800.0"
+            xmlns:fx="http://javafx.com/fxml">
+    <Label>
+        文件处理页面
+    </Label>
+
+</VBox>

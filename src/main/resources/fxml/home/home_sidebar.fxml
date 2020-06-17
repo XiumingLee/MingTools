@@ -31,15 +31,15 @@
                 </Label>
             </HBox>
 
-            <HBox prefHeight="30" prefWidth="180" styleClass="toolElement">
-                <Label prefHeight="30" prefWidth="30" style="-fx-background-image: url(/fxml/qiniu/img/qiniu.png)" styleClass="element_toolIcon">
+            <HBox prefHeight="30" prefWidth="180" styleClass="toolElement" onMouseClicked="#toFilePage">
+                <Label prefHeight="30" prefWidth="30" style="-fx-background-image: url(/fxml/file/img/file.png)" styleClass="element_toolIcon">
                     <HBox.margin>
                         <Insets left="10.0" />
                         <Insets right="20.0" />
                     </HBox.margin>
                 </Label>
                 <Label prefHeight="30" prefWidth="120" styleClass="element_toolName">
-                    其他
+                    文件处理
                 </Label>
             </HBox>
         </ListView>
