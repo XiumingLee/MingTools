@@ -42,6 +42,18 @@
                     文件处理
                 </Label>
             </HBox>
+
+            <HBox prefHeight="30" prefWidth="180" styleClass="toolElement" onMouseClicked="#toWordPage">
+                <Label prefHeight="30" prefWidth="30" style="-fx-background-image: url(/fxml/word/img/word.png)" styleClass="element_toolIcon">
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                </Label>
+                <Label prefHeight="30" prefWidth="120" styleClass="element_toolName">
+                    OCR和翻译
+                </Label>
+            </HBox>
         </ListView>
     </VBox>
 </VBox>

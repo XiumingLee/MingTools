@@ -19,7 +19,6 @@ public class HomeController extends FXMLController {
     public Pane homePane;
     public Pane homeSidebar;
     public Pane homeContent;
-    public Pane nav;
 
     @Override
     protected void initController() {

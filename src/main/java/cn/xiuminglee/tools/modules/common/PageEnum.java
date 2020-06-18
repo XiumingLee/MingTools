@@ -11,5 +11,7 @@ public enum PageEnum {
     /** 七牛 */
     QINIU,
     /** 文件处理 */
-    FILE
+    FILE,
+    /** ORC和文字翻译 */
+    WORD
 }

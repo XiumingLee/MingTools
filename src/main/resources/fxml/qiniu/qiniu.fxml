@@ -13,7 +13,7 @@
       xmlns="http://javafx.com/javafx/10.0.2-internal"
       xmlns:fx="http://javafx.com/fxml/1">
     <ImageView fx:id="imageView" fitHeight="500.0" fitWidth="800" pickOnBounds="true" preserveRatio="true" />
-    <TextField fx:id="textField" prefHeight="50" text="图片地址">
+    <TextField fx:id="textField" prefHeight="50" promptText="图片上传快捷键：Ctrl + Shift + V">
       <VBox.margin>
          <Insets bottom="10.0" />
       </VBox.margin>

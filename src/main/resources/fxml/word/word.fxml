@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--    fx:controller="cn.xiuminglee.tools.modules.word.view.WordController"         -->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="wordBox" alignment="CENTER" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+
+    <TextArea fx:id="startTextArea" prefHeight="300" promptText="ORC识别结果或待翻译文字；OCR快捷键：Ctrl + Shift + T" wrapText="true">
+        <VBox.margin>
+            <Insets bottom="15" />
+        </VBox.margin>
+    </TextArea>
+    <HBox prefHeight="50">
+        <Label>选项栏，待开发....</Label>
+    </HBox>
+    <TextArea fx:id="resultTextArea" prefHeight="300" promptText="翻译后的结果" wrapText="true">
+        <VBox.margin>
+            <Insets top="15" />
+        </VBox.margin>
+    </TextArea>
+</VBox>

@@ -15,7 +15,7 @@ public class HomeViewInit extends AbstractUiObject {
 
     public HomeViewInit() {
         HomeController homeController = SpringContextHolder.getBean(HomeController.class);
-        //homeController.setWindow(this);
+        homeController.setWindow(this);
         setTitle("MingTools工具包");
         //getIcons().add(new Image(Constant.System.SYSTEM_ICON));
         setWidth(1100);

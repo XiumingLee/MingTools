@@ -13,6 +13,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 public class MingToolsProperties {
     private QiniuProperties qiniu = new QiniuProperties();
+    private BaiduProperties baidu = new BaiduProperties();
 
 
 
@@ -20,7 +21,7 @@ public class MingToolsProperties {
     /** 七牛配置相关 */
     @Getter
     @Setter
-    private class QiniuProperties {
+    public class QiniuProperties {
         /** accessKey*/
         private String accessKey;
         /** secretKey*/
@@ -29,5 +30,15 @@ public class MingToolsProperties {
         private  String bucketName;
         /** 文件地址前缀，cdn地址*/
         private String filePathPrefix;
+    }
+
+    /** 百度配置相关 */
+    @Getter
+    @Setter
+    public class BaiduProperties {
+        /** accessKey*/
+        private String accessKey;
+        /** secretKey*/
+        private String secretKey;
     }
 }
