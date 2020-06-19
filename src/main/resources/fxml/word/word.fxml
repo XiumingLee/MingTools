@@ -6,40 +6,36 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="wordBox"
-      alignment="CENTER"
-      prefHeight="700.0" prefWidth="800.0"
-      stylesheets="@css/word.css"
-      xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="wordBox" alignment="CENTER" prefHeight="700.0" prefWidth="800.0" stylesheets="@css/word.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
     <HBox>
         <Label>
             <HBox.margin>
-                <Insets left="10"/>
+                <Insets left="10" />
             </HBox.margin>
         </Label>
         <Label>OCR：</Label>
-        <Label textFill="dimgrey" fx:id="ocrState">准备</Label>
+        <Label fx:id="ocrState" textFill="dimgrey">准备</Label>
         <Label>
             <HBox.margin>
-                <Insets left="40"/>
+                <Insets left="40" />
             </HBox.margin>
         </Label>
         <Label>翻译：</Label>
-        <Label textFill="dimgrey" fx:id="translateState">准备</Label>
+        <Label fx:id="translateState" textFill="dimgrey">准备</Label>
         <VBox.margin>
-            <Insets bottom="10"/>
+            <Insets bottom="10" />
         </VBox.margin>
     </HBox>
     <TextArea fx:id="startTextArea" prefHeight="300" promptText="ORC识别结果或待翻译文字；OCR快捷键：Ctrl + Shift + T" wrapText="true">
         <VBox.margin>
-            <Insets bottom="15"/>
+            <Insets bottom="15" />
         </VBox.margin>
     </TextArea>
-    <HBox prefHeight="50" alignment="CENTER_LEFT">
+    <HBox alignment="CENTER_LEFT" prefHeight="50">
         <Label textFill="brown">
             OCR
             <HBox.margin>
-                <Insets right="10"/>
+                <Insets left="15.0" right="10.0" />
             </HBox.margin>
         </Label>
         <Label>
@@ -51,7 +47,7 @@
     </HBox>
     <TextArea fx:id="resultTextArea" prefHeight="300" promptText="翻译的结果" wrapText="true">
         <VBox.margin>
-            <Insets top="15"/>
+            <Insets top="15" />
         </VBox.margin>
     </TextArea>
 </VBox>
