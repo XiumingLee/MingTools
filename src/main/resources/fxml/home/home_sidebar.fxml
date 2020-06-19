@@ -11,11 +11,11 @@
       stylesheets="@css/home_sidebar.css" xmlns="http://javafx.com/javafx/10.0.2-internal"
       xmlns:fx="http://javafx.com/fxml/1">
     <!-- 搜索栏 -->
-    <HBox fx:id="homeSidebar_search_pane" prefHeight="30" prefWidth="${homeSidebarPane.width}" styleClass="search">
-        <TextField prefHeight="30" promptText="搜索" styleClass="searchInput" />
-        <Label prefHeight="30" prefWidth="30" styleClass="searchAdd" />
-    </HBox>
-    <!-- 会话栏 -->
+    <!--<HBox alignment="CENTER" fx:id="homeSidebar_search_pane" prefHeight="30" prefWidth="${homeSidebarPane.width}">-->
+    <!--    <TextField prefHeight="30" promptText="搜索" styleClass="searchInput" />-->
+    <!--    <Label prefHeight="30" prefWidth="30" styleClass="searchAdd" />-->
+    <!--</HBox>-->
+    <!-- 工具栏 -->
     <VBox prefHeight="1070" prefWidth="${homeSidebarPane.width}">
         <ListView fx:id="toolList" prefHeight="1070" prefWidth="200" styleClass="toolListStyle">
             <!-- 七牛云存储 -->

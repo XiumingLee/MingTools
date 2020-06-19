@@ -6,19 +6,52 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="wordBox" alignment="CENTER" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
-
+<VBox fx:id="wordBox"
+      alignment="CENTER"
+      prefHeight="700.0" prefWidth="800.0"
+      stylesheets="@css/word.css"
+      xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox>
+        <Label>
+            <HBox.margin>
+                <Insets left="10"/>
+            </HBox.margin>
+        </Label>
+        <Label>OCR：</Label>
+        <Label textFill="dimgrey" fx:id="ocrState">准备</Label>
+        <Label>
+            <HBox.margin>
+                <Insets left="40"/>
+            </HBox.margin>
+        </Label>
+        <Label>翻译：</Label>
+        <Label textFill="dimgrey" fx:id="translateState">准备</Label>
+        <VBox.margin>
+            <Insets bottom="10"/>
+        </VBox.margin>
+    </HBox>
     <TextArea fx:id="startTextArea" prefHeight="300" promptText="ORC识别结果或待翻译文字；OCR快捷键：Ctrl + Shift + T" wrapText="true">
         <VBox.margin>
-            <Insets bottom="15" />
+            <Insets bottom="15"/>
         </VBox.margin>
     </TextArea>
-    <HBox prefHeight="50">
-        <Label>选项栏，待开发....</Label>
+    <HBox prefHeight="50" alignment="CENTER_LEFT">
+        <Label textFill="brown">
+            OCR
+            <HBox.margin>
+                <Insets right="10"/>
+            </HBox.margin>
+        </Label>
+        <Label>
+            语言：
+        </Label>
+        <ChoiceBox fx:id="ocrChoiceBox">
+
+        </ChoiceBox>
     </HBox>
-    <TextArea fx:id="resultTextArea" prefHeight="300" promptText="翻译后的结果" wrapText="true">
+    <TextArea fx:id="resultTextArea" prefHeight="300" promptText="翻译的结果" wrapText="true">
         <VBox.margin>
-            <Insets top="15" />
+            <Insets top="15"/>
         </VBox.margin>
     </TextArea>
 </VBox>
