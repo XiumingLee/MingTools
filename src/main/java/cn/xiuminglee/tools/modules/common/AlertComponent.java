@@ -14,4 +14,12 @@ public class AlertComponent {
         alert.setContentText(errMsg);
         alert.showAndWait();
     }
+
+    public static void warningAlert(String errMsg){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.titleProperty().set("警告");
+        alert.headerTextProperty().set("警告");
+        alert.setContentText(errMsg);
+        alert.showAndWait();
+    }
 }

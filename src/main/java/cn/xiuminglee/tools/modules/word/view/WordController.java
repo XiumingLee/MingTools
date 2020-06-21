@@ -2,9 +2,12 @@ package cn.xiuminglee.tools.modules.word.view;
 
 import cn.xiuminglee.tools.core.bean.FXMLController;
 import cn.xiuminglee.tools.core.bean.annotation.FXMLView;
+import cn.xiuminglee.tools.modules.common.AlertComponent;
 import cn.xiuminglee.tools.modules.word.biz.BaiduService;
 import cn.xiuminglee.tools.modules.word.biz.OcrService;
 import cn.xiuminglee.tools.modules.word.biz.State;
+import cn.xiuminglee.tools.modules.word.biz.TransService;
+import javafx.event.ActionEvent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -17,10 +20,12 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author Xiuming Lee
  * @description  文件处理页面控制器
  * 百度OCR：https://cloud.baidu.com/doc/OCR/s/zk3h7xz52
+ * 百度翻译：https://fanyi-api.baidu.com/doc/21
  */
 @Slf4j
 @FXMLView(fxmlPath = "fxml/word/word.fxml")
 public class WordController extends FXMLController {
+
 
 
     // region 其他服务模块 --------------------------------------------------------------
@@ -29,6 +34,8 @@ public class WordController extends FXMLController {
     private BaiduService baiduService;
     @Autowired
     private OcrService ocrService;
+    @Autowired
+    private TransService transService;
     // endregion 其他服务模块 --------------------------------------------------------------
 
 
@@ -40,11 +47,17 @@ public class WordController extends FXMLController {
     /** 存放翻译好的文字 */
     public TextArea resultTextArea;
     /** OCR状态 */
-    public Label ocrState;
-    /** 翻译状态 */
-    public Label translateState;
+    public Label ocrStateLabel;
+    public State ocrState = State.READY;
     /** ocr的语言选择框 */
     public ChoiceBox ocrChoiceBox;
+    /** 翻译状态 */
+    public Label translateStateLabel;
+    public State translateState  = State.READY;
+    /** 翻译的源语言选择框 */
+    public ChoiceBox transFromChoiceBox;
+    /** 翻译的目标语言选择框 */
+    public ChoiceBox transToChoiceBox;
     // endregion  页面中的Node元素 --------------------------------------------------------------
 
 
@@ -52,6 +65,7 @@ public class WordController extends FXMLController {
     @Override
     protected void initController() {
         ocrService.initOcrService();
+        transService.initTransService();
     }
 
     /**
@@ -62,13 +76,28 @@ public class WordController extends FXMLController {
         ocrService.setOcrShortcuts();
     }
 
+    /**
+     * 点击翻译按钮时触发
+     * @param event
+     */
+    public void handleTransAction(ActionEvent event) {
+        if (translateState.equals(State.RUNNING) || ocrState.equals(State.RUNNING)) {
+            AlertComponent.warningAlert("其他操作正在进行，请稍后再试！");
+            return;
+        }
+        transService.transServiceTask.queryStr = startTextArea.getText();
+        transService.transServiceTask.start();
+        changLabelState(translateStateLabel,translateState,State.RUNNING);
+    }
+
 
     /**
      * 修改OCR或翻译Label的状态
      * @param label OCR或翻译
      * @param value State值
      */
-    public void changLabelState(Label label, State value){
+    public void changLabelState(Label label,State state, State value){
+        state = value;
         label.setText(value.getStateMessage());
         label.setTextFill(Paint.valueOf(value.getColor()));
     }

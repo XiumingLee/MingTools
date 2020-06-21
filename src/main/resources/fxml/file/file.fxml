@@ -13,8 +13,8 @@
             alignment="CENTER"
             prefHeight="700.0" prefWidth="800.0"
             xmlns:fx="http://javafx.com/fxml">
-    <Label>
-        文件处理页面
-    </Label>
+    <!--<Label>-->
+    <!--    文件处理页面-->
+    <!--</Label>-->
 
 </VBox>

@@ -36,9 +36,14 @@ public class MingToolsProperties {
     @Getter
     @Setter
     public class BaiduProperties {
-        /** accessKey*/
-        private String accessKey;
-        /** secretKey*/
-        private String secretKey;
+        /** OCR 的accessKey*/
+        private String accessOcrKey;
+        /** OCR 的secretKey*/
+        private String secretOcrKey;
+
+        /** Trans 的accessKey*/
+        private String accessTransKey;
+        /** Trans 的secretKey*/
+        private String secretTransKey;
     }
 }

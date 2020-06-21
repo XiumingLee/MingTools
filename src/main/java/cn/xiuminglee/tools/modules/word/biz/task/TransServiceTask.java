@@ -1,22 +1,25 @@
 package cn.xiuminglee.tools.modules.word.biz.task;
 
+import cn.xiuminglee.tools.core.exception.MingToolsException;
 import cn.xiuminglee.tools.modules.word.biz.BaiduService;
 import cn.xiuminglee.tools.modules.word.biz.element.LanguageType;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.StringUtils;
 
 /**
  * @author Xiuming Lee
  * @description
- * 注意：Service中不能使用粘贴板？调用Clipboard的方法后，一直没有返回，任务结束不了。
  */
-@Slf4j
-public class OcrServiceTask extends Service<String> {
+public class TransServiceTask extends Service<String> {
     private BaiduService baiduService;
-    private byte[] imageBytes;
-    private LanguageType languageType = new LanguageType("CHN_ENG","中英文混合");
-    public OcrServiceTask(BaiduService baiduService) {
+
+    public String queryStr;
+
+    public LanguageType fromLanguage = new LanguageType("auto","自动检测");
+    public LanguageType toLanguage = new LanguageType("auto","自动检测");
+
+    public TransServiceTask(BaiduService baiduService) {
         this.baiduService = baiduService;
     }
 
@@ -25,19 +28,14 @@ public class OcrServiceTask extends Service<String> {
         Task<String> resultTask = new Task<>() {
             @Override
             protected String call() throws Exception {
+                if (StringUtils.isEmpty(queryStr)){
+                    throw new MingToolsException("请输入待翻译的内容文字！");
+                }
                 String resultText = null;
-                resultText = baiduService.generalOcrBasic(imageBytes,languageType);
+                resultText = baiduService.getTransResult(queryStr,fromLanguage.getKey(),toLanguage.getKey());
                 return resultText;
             }
         };
         return resultTask;
-    }
-
-    public void setImageBytes(byte[] imageBytes) {
-        this.imageBytes = imageBytes;
-    }
-
-    public void setLanguageType(LanguageType languageType) {
-        this.languageType = languageType;
     }
 }

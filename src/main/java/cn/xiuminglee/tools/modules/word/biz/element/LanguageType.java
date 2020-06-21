@@ -2,6 +2,7 @@ package cn.xiuminglee.tools.modules.word.biz.element;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.util.StringConverter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,5 +47,30 @@ public class LanguageType {
                 new LanguageType("ITA","意大利语"),
                 new LanguageType("RUS","俄语")
         );
+    }
+    public static ObservableList<LanguageType> buildBaiduTransLanguageType(){
+        return FXCollections.observableArrayList(
+                new LanguageType("auto","自动检测"),
+                new LanguageType("zh","中文"),
+                new LanguageType("en","英文"),
+                new LanguageType("yue","粤语"),
+                new LanguageType("wyw","文言文"),
+                new LanguageType("jp","日语"),
+                new LanguageType("kor","韩语"),
+                new LanguageType("de","德语"),
+                new LanguageType("it","意大利语"),
+                new LanguageType("ru","俄语")
+        );
+    }
+
+    public static class LanguageTypeStringConverter extends StringConverter<LanguageType> {
+        @Override
+        public String toString(LanguageType languageType) {
+            return languageType.getValue();  // 这里将想要 看到的内容显示出来
+        }
+        @Override
+        public LanguageType fromString(String s) {
+            return null;
+        }
     }
 }
