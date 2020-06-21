@@ -16,14 +16,14 @@
             </HBox.margin>
         </Label>
         <Label>OCR：</Label>
-        <Label fx:id="ocrState" textFill="dimgrey">准备</Label>
+        <Label fx:id="ocrStateLabel" textFill="dimgrey">准备</Label>
         <Label>
             <HBox.margin>
                 <Insets left="40"/>
             </HBox.margin>
         </Label>
         <Label>翻译：</Label>
-        <Label fx:id="translateState" textFill="dimgrey">准备</Label>
+        <Label fx:id="translateStateLabel" textFill="dimgrey">准备</Label>
         <VBox.margin>
             <Insets bottom="10"/>
         </VBox.margin>
