@@ -11,11 +11,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.VBox;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Xiuming Lee
  * @description
  */
+@Slf4j
 @FXMLView(fxmlPath = "fxml/qiniu/qiniu.fxml")
 public class QiniuController extends FXMLController {
 
@@ -28,7 +30,7 @@ public class QiniuController extends FXMLController {
     /** 删除图片方法 */
     public void handleButtonAction(ActionEvent event) {
         AlertComponent.errorAlert("错误提示！");
-        System.out.println("点击了删除事件");
+        log.info("点击了删除事件");
     }
 
     public void setShortcuts(){
@@ -36,7 +38,7 @@ public class QiniuController extends FXMLController {
         // Ctrl + Shift + v
         KeyCombination keyCombination = new KeyCodeCombination(KeyCode.V,KeyCombination.CONTROL_DOWN,KeyCombination.SHIFT_DOWN);
         stage.getScene().getAccelerators().put(keyCombination,()->{
-            System.out.println("七牛快捷键触发！！");
+            log.info("七牛快捷键触发！！");
         });
     }
 }

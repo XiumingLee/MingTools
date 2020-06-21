@@ -55,7 +55,7 @@ public class HomeSidebarController extends FXMLController {
         /** 绑定快捷键事件 */
         qiniuController.setWindow(homeController.getWindow());
         qiniuController.setShortcuts();
-        System.out.println("打开七牛页面");
+        log.info("打开七牛页面");
     }
 
     /** 去文件处理页面 */
@@ -66,7 +66,7 @@ public class HomeSidebarController extends FXMLController {
         this.pageEnum = PageEnum.FILE;
         Pane homeContent = getHomeContent();
         homeContent.getChildren().add(fileController.fileBox);
-        System.out.println("打开文件处理页面");
+        log.info("打开文件处理页面");
     }
 
     /** 去ORC和翻译页面 */
@@ -80,7 +80,7 @@ public class HomeSidebarController extends FXMLController {
         /** 绑定快捷键事件 */
         wordController.setWindow(homeController.getWindow());
         wordController.setShortcuts();
-        System.out.println("打开ORC和翻译页面");
+        log.info("打开ORC和翻译页面");
     }
 
     /**

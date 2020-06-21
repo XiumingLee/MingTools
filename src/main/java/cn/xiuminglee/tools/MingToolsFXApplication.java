@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.application.Platform;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -14,6 +15,7 @@ import org.springframework.context.support.GenericApplicationContext;
  * @author Xiuming Lee
  * @description 请启动 {@link MingToolsApplication#main(String[])}
  */
+@Slf4j
 public class MingToolsFXApplication extends Application {
 
     private ConfigurableApplicationContext context;
@@ -42,7 +44,7 @@ public class MingToolsFXApplication extends Application {
 
     @Override
     public void stop() throws Exception {
-        System.out.println("调用了Stop方法");
+        log.info("调用了Stop方法");
         this.context.close();
         Platform.exit();
     }
