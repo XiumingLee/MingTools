@@ -4,13 +4,16 @@ import cn.hutool.core.io.file.FileReader;
 import cn.xiuminglee.tools.modules.Constant;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
+import javafx.scene.input.DataFormat;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Xiuming Lee
@@ -41,5 +44,11 @@ public class ClipboardUtil {
             imageBytes = byteArrayInputStream.toByteArray();
         }
         return imageBytes;
+    }
+
+    public static void setStringToClipboard(String str){
+        Map<DataFormat, Object> content = new HashMap<>(1);
+        content.put(DataFormat.PLAIN_TEXT,str);
+        Constant.System.CLIPBOARD.setContent(content);
     }
 }

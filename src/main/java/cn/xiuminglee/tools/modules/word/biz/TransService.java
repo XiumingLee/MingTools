@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author Xiuming Lee
- * @description 翻译相关
+ * @description 翻译相关,分担WordController的业务职能
  */
 @Service
 @Slf4j

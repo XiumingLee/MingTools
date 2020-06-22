@@ -7,7 +7,8 @@
 
 <!--       fx:controller="cn.xiuminglee.tools.modules.qiniu.view.QiniuController"         -->
 
-<VBox fx:id="qiniuBox" alignment="CENTER" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="qiniuBox"
+      alignment="CENTER" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
     <ImageView fx:id="imageView" fitHeight="500.0" fitWidth="700" pickOnBounds="true" preserveRatio="true">
       <VBox.margin>
          <Insets bottom="40.0" />

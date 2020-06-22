@@ -19,18 +19,19 @@
         <javafx.version>13</javafx.version>
         <bootstrapfx.version>0.2.4</bootstrapfx.version>
         <hutool.version>5.3.8</hutool.version>
+        <qiniu-java-sdk.version>7.2.25</qiniu-java-sdk.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <!--<exclusions>-->
-            <!--    <exclusion>-->
-            <!--        <artifactId>log4j-to-slf4j</artifactId>-->
-            <!--        <groupId>org.apache.logging.log4j</groupId>-->
-            <!--    </exclusion>-->
-            <!--</exclusions>-->
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j-to-slf4j</artifactId>
+                    <groupId>org.apache.logging.log4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -50,16 +51,17 @@
         </dependency>
 
         <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>${qiniu-java-sdk.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
         </dependency>
 
-        <!--<dependency>-->
-        <!--    <groupId>org.kordamp.bootstrapfx</groupId>-->
-        <!--    <artifactId>bootstrapfx-core</artifactId>-->
-        <!--    <version>${bootstrapfx.version}</version>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
