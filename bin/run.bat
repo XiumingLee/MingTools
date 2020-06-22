@@ -10,5 +10,4 @@ set "JAVA_OPT=%JAVA_OPT% -server -Xms30m -Xmx30m -Xmn20m -XX:MetaspaceSize=50m -
 set SPRING_BOOT_OPT="--spring.config.location=%BASE_DIR%\conf\application.yaml"
 java -jar  %APP_JAR% %SPRING_BOOT_OPT%
 
-exit
 pause

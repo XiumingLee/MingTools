@@ -1,4 +1,4 @@
-package cn.xiuminglee.tools.modules.word.biz;
+package cn.xiuminglee.tools.modules.common;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

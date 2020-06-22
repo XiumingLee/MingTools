@@ -1,7 +1,7 @@
 package cn.xiuminglee.tools.modules.home.view;
 
 import cn.xiuminglee.tools.modules.AbstractUiObject;
-import cn.xiuminglee.tools.util.SpringContextHolder;
+import cn.xiuminglee.tools.core.bean.SpringContextHolder;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import lombok.extern.slf4j.Slf4j;

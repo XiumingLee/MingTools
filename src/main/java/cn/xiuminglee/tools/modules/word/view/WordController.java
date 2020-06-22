@@ -5,7 +5,7 @@ import cn.xiuminglee.tools.core.bean.annotation.FXMLView;
 import cn.xiuminglee.tools.modules.common.AlertComponent;
 import cn.xiuminglee.tools.modules.word.biz.BaiduService;
 import cn.xiuminglee.tools.modules.word.biz.OcrService;
-import cn.xiuminglee.tools.modules.word.biz.State;
+import cn.xiuminglee.tools.modules.common.State;
 import cn.xiuminglee.tools.modules.word.biz.TransService;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ChoiceBox;

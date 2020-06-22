@@ -17,6 +17,11 @@ public class Constant {
         Clipboard CLIPBOARD = Clipboard.getSystemClipboard();
     }
 
+    public interface Qiniu {
+        /** 七牛工具页面背景图片 */
+        String QINIU_IMAGE_AREA = "fxml/qiniu/img/area.jpg";
+    }
+
     public interface Baidu {
         /** 百度ORC 授权地址 */
         String OCR_AUTH_HOST = "https://aip.baidubce.com/oauth/2.0/token";

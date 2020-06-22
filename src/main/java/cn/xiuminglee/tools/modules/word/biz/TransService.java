@@ -1,6 +1,7 @@
 package cn.xiuminglee.tools.modules.word.biz;
 
 import cn.xiuminglee.tools.modules.common.AlertComponent;
+import cn.xiuminglee.tools.modules.common.State;
 import cn.xiuminglee.tools.modules.word.biz.element.LanguageType;
 import cn.xiuminglee.tools.modules.word.biz.task.TransServiceTask;
 import cn.xiuminglee.tools.modules.word.view.WordController;
@@ -57,7 +58,7 @@ public class TransService {
         transServiceTask = new TransServiceTask(baiduService);
         transServiceTask.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                wordController.changLabelState(wordController.translateStateLabel,wordController.translateState,State.SUCCEEDED);
+                wordController.changLabelState(wordController.translateStateLabel,wordController.translateState, State.SUCCEEDED);
                 wordController.resultTextArea.setText(newValue);
             }
         });

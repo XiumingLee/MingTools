@@ -1,16 +1,14 @@
 package cn.xiuminglee.tools.modules.word.biz;
 
-import cn.hutool.core.io.file.FileReader;
-import cn.xiuminglee.tools.modules.Constant;
 import cn.xiuminglee.tools.modules.common.AlertComponent;
+import cn.xiuminglee.tools.modules.common.ClipboardUtil;
+import cn.xiuminglee.tools.modules.common.State;
 import cn.xiuminglee.tools.modules.word.biz.element.LanguageType;
 import cn.xiuminglee.tools.modules.word.biz.task.OcrServiceTask;
 import cn.xiuminglee.tools.modules.word.view.WordController;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
-import javafx.embed.swing.SwingFXUtils;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -18,12 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * @author Xiuming Lee
@@ -58,7 +51,7 @@ public class OcrService {
         ocrFXService = new OcrServiceTask(baiduService);
         ocrFXService.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                wordController.changLabelState(wordController.ocrStateLabel,wordController.ocrState,State.SUCCEEDED);
+                wordController.changLabelState(wordController.ocrStateLabel,wordController.ocrState, State.SUCCEEDED);
                 wordController.startTextArea.setText(newValue);
             }
         });
@@ -84,27 +77,18 @@ public class OcrService {
         // Ctrl + Shift + T
         KeyCombination keyCombination = new KeyCodeCombination(KeyCode.T,KeyCombination.CONTROL_DOWN,KeyCombination.SHIFT_DOWN);
         wordController.getWindow().getScene().getAccelerators().put(keyCombination,()->{
-            wordController.changLabelState(wordController.ocrStateLabel,wordController.ocrState,State.RUNNING);
-            byte[] imageBytes = null;
-            if (Constant.System.CLIPBOARD.hasFiles()){ // 复制本地的图片。如果是文件只取最后一个文件
-                List<File> files = Constant.System.CLIPBOARD.getFiles();
-                File file = files.get(files.size() - 1);
-                FileReader fileReader = new FileReader(file);
-                imageBytes = fileReader.readBytes();
+            if (wordController.translateState.equals(State.RUNNING) || wordController.ocrState.equals(State.RUNNING)) {
+                AlertComponent.warningAlert("其他操作正在进行，请稍后再试！");
+                return;
             }
-            if (Constant.System.CLIPBOARD.hasImage()){ // 页面复制的图片或截图的图片
-                Image image = Constant.System.CLIPBOARD.getImage();
-                BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
-                ByteArrayOutputStream byteArrayInputStream = new ByteArrayOutputStream();
-                try {
-                    ImageIO.write(bufferedImage, "png", byteArrayInputStream);
-                    imageBytes = byteArrayInputStream.toByteArray();
-                } catch (IOException e) {
-                    log.error("图片转换错误！",e);
-                    wordController.changLabelState(wordController.ocrStateLabel,wordController.ocrState,State.FAILED);
-                    AlertComponent.errorAlert("粘贴板中的图片转换错误：" + e.getMessage());
-                    throw new RuntimeException(e);
-                }
+            wordController.changLabelState(wordController.ocrStateLabel,wordController.ocrState,State.RUNNING);
+            byte[] imageBytes = new byte[0];
+            try {
+                imageBytes = ClipboardUtil.getImageBytes();
+            } catch (IOException e) {
+                log.error("图片转换错误！",e);
+                wordController.changLabelState(wordController.ocrStateLabel,wordController.ocrState,State.FAILED);
+                AlertComponent.errorAlert("粘贴板中的图片转换错误：" + e.getMessage());
             }
             ocrFXService.setImageBytes(imageBytes);
             ocrFXService.start();

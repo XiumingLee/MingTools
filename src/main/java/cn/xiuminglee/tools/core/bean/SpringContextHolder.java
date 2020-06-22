@@ -1,4 +1,4 @@
-package cn.xiuminglee.tools.util;
+package cn.xiuminglee.tools.core.bean;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
