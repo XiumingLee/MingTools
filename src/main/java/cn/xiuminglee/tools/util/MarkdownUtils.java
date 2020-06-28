@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * @author Xiuming Lee
  * @description Markdown相关
  */
-public class MarkdownUtil {
+public class MarkdownUtils {
 
     /**
      * @param imageUrl http://123.com/1.png

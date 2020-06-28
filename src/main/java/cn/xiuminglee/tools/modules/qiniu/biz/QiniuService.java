@@ -6,7 +6,7 @@ import cn.xiuminglee.tools.modules.common.ClipboardUtil;
 import cn.xiuminglee.tools.modules.common.State;
 import cn.xiuminglee.tools.modules.qiniu.biz.task.QiniuServiceTask;
 import cn.xiuminglee.tools.modules.qiniu.view.QiniuController;
-import cn.xiuminglee.tools.util.MarkdownUtil;
+import cn.xiuminglee.tools.util.MarkdownUtils;
 import javafx.concurrent.Worker;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -68,7 +68,7 @@ public class QiniuService {
                     // 1、设置到显示区
                     qiniuController.imageView.setImage(new Image(newValue));
                     // 2、设置到文本域和粘贴板
-                    String mdImageUrl = MarkdownUtil.buildMDImageUrl(newValue);
+                    String mdImageUrl = MarkdownUtils.buildMDImageUrl(newValue);
                     qiniuController.textField.setText(mdImageUrl);
                     ClipboardUtil.setStringToClipboard(mdImageUrl);
                 } else {

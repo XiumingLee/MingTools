@@ -8,7 +8,7 @@ import cn.xiuminglee.tools.modules.common.AlertComponent;
 import cn.xiuminglee.tools.modules.common.State;
 import cn.xiuminglee.tools.modules.qiniu.biz.QiniuService;
 import cn.xiuminglee.tools.modules.qiniu.biz.task.QiniuServiceTask;
-import cn.xiuminglee.tools.util.MarkdownUtil;
+import cn.xiuminglee.tools.util.MarkdownUtils;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -55,7 +55,7 @@ public class QiniuController extends FXMLController {
         qiniuService.qiniuServiceTask.flag = QiniuServiceTask.Operation.DEL;
         String qiniuImageKey = null;
         try {
-            qiniuImageKey = MarkdownUtil.getQiniuImageKey(textField.getText());
+            qiniuImageKey = MarkdownUtils.getQiniuImageKey(textField.getText());
         } catch (MingToolsException e) {
             log.error("删除七牛云图片时出现错误：{}",e.getMessage(),e);
             AlertComponent.errorAlert("删除七牛云图片时出现错误：" + e.getMessage());
