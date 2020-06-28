@@ -1,20 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <!--   fx:controller="cn.xiuminglee.tools.modules.file.view.FileController"   -->
 
-<VBox xmlns="http://javafx.com/javafx"
-            fx:id="fileBox"
-            alignment="CENTER"
-            prefHeight="700.0" prefWidth="800.0"
-            xmlns:fx="http://javafx.com/fxml">
-    <!--<Label>-->
-    <!--    文件处理页面-->
-    <!--</Label>-->
+<VBox fx:id="fileBox"
+      prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+
+    <TabPane prefHeight="800">
+        <Tab closable="false" text="修改文件名">
+            <VBox>
+                <HBox alignment="CENTER_LEFT" prefWidth="900">
+                    <Button fx:id="fileChooserBtn" text="选择文件夹">
+                        <HBox.margin>
+                            <Insets left="10" top="10" />
+                        </HBox.margin>
+                    </Button>
+                    <Label textFill="brown">选择的文件夹名称为：
+                        <HBox.margin>
+                            <Insets left="50" top="10" />
+                        </HBox.margin>
+                    </Label>
+                    <Label fx:id="selectedFileName" textFill="dimgrey">
+                        <HBox.margin>
+                            <Insets top="10" />
+                        </HBox.margin>
+                    </Label>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefWidth="900">
+                    <!-- 定义ToggleGroup -->
+                    <fx:define>
+                        <ToggleGroup fx:id="radioToggleGroup" />
+                    </fx:define>
+                    <RadioButton fx:id="radioButtonRemove" text="去掉文件中的指定字符串" toggleGroup="$radioToggleGroup">
+                        <HBox.margin>
+                            <Insets right="10" />
+                        </HBox.margin>
+                    </RadioButton>
+                    <RadioButton fx:id="radioButtonPinyin" text="将文件名转成汉语拼音" toggleGroup="$radioToggleGroup" />
+                    <VBox.margin>
+                        <Insets left="10" top="10" />
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefWidth="900" fx:id="changeNameOtherBox">
+                   <Label text="要去掉的字符串：" />
+                    <TextField fx:id="changeNameRemoveStr">
+                        <HBox.margin>
+                            <Insets left="10" />
+                        </HBox.margin>
+                    </TextField>
+                    <VBox.margin>
+                        <Insets left="10" top="10" />
+                    </VBox.margin>
+                </HBox>
+            <!--  华丽的分割线  -->
+                <HBox alignment="CENTER_RIGHT">
+                    <Label textFill="brown">状态：</Label>
+                    <Label fx:id="changeNameStateLabel" textFill="dimgrey">
+                        准备
+                        <HBox.margin>
+                            <Insets right="50" />
+                        </HBox.margin>
+                    </Label>
+
+                    <Button onAction="#handleFileChangeNameButtonAction" text="执行" />
+                    <VBox.margin>
+                        <Insets right="10" />
+                    </VBox.margin>
+                </HBox>
+            </VBox>
+        </Tab>
+        <!--<Tab closable="false" text="删除文件" />-->
+    </TabPane>
 
 </VBox>
