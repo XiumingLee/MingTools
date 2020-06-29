@@ -9,6 +9,7 @@ import cn.xiuminglee.tools.modules.word.view.WordController;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @description
  */
 @Slf4j
-@FXMLView(fxmlPath = "fxml/home/home_sidebar.fxml")
+@FXMLView(fxmlPath = "fxml/home/homeSidebar.fxml")
 public class HomeSidebarController extends FXMLController {
 
     private PageEnum pageEnum = PageEnum.HOME;
@@ -36,7 +37,7 @@ public class HomeSidebarController extends FXMLController {
 
     // endregion 其他组件Controller --------------------------------------------------------------
 
-    public Pane homeSidebarPane;
+    public VBox homeSidebarPane;
     public ListView<Pane> toolList;
 
 

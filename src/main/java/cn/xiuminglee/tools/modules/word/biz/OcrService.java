@@ -36,7 +36,7 @@ public class OcrService {
     private WordController wordController;
 
     // region 属性 --------------------------------------------------------------
-    OcrServiceTask ocrFXService = null;
+    private OcrServiceTask ocrFXService = null;
     // endregion 属性 --------------------------------------------------------------
 
     public void initOcrService(){

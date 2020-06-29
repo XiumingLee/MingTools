@@ -3,10 +3,10 @@ package cn.xiuminglee.tools.modules.word.view;
 import cn.xiuminglee.tools.core.bean.FXMLController;
 import cn.xiuminglee.tools.core.bean.annotation.FXMLView;
 import cn.xiuminglee.tools.modules.common.AlertComponent;
-import cn.xiuminglee.tools.modules.word.biz.BaiduService;
-import cn.xiuminglee.tools.modules.word.biz.OcrService;
 import cn.xiuminglee.tools.modules.common.State;
+import cn.xiuminglee.tools.modules.word.biz.OcrService;
 import cn.xiuminglee.tools.modules.word.biz.TransService;
+import cn.xiuminglee.tools.modules.word.biz.element.LanguageType;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -31,8 +31,6 @@ public class WordController extends FXMLController {
     // region 其他服务模块 --------------------------------------------------------------
     /** 百度相关 */
     @Autowired
-    private BaiduService baiduService;
-    @Autowired
     private OcrService ocrService;
     @Autowired
     private TransService transService;
@@ -50,14 +48,14 @@ public class WordController extends FXMLController {
     public Label ocrStateLabel;
     public State ocrState = State.READY;
     /** ocr的语言选择框 */
-    public ChoiceBox ocrChoiceBox;
+    public ChoiceBox<LanguageType> ocrChoiceBox;
     /** 翻译状态 */
     public Label translateStateLabel;
     public State translateState  = State.READY;
     /** 翻译的源语言选择框 */
-    public ChoiceBox transFromChoiceBox;
+    public ChoiceBox<LanguageType> transFromChoiceBox;
     /** 翻译的目标语言选择框 */
-    public ChoiceBox transToChoiceBox;
+    public ChoiceBox<LanguageType> transToChoiceBox;
     // endregion  页面中的Node元素 --------------------------------------------------------------
 
 

@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.PostConstruct;
 import java.io.File;
 
 /**
@@ -50,7 +49,6 @@ public class FileChangeNameService {
         changeNameServiceTask.start();
     }
 
-    @PostConstruct
     public void init(){
         initFileChangeNameServiceTask();
         initDirectoryChooser();

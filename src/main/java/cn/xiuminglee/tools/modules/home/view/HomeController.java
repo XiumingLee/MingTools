@@ -3,6 +3,7 @@ package cn.xiuminglee.tools.modules.home.view;
 import cn.xiuminglee.tools.core.bean.FXMLController;
 import cn.xiuminglee.tools.core.bean.annotation.FXMLView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -22,7 +23,7 @@ public class HomeController extends FXMLController {
 
     @Override
     protected void initController() {
-        Pane homeSidebarPane = homeSidebarController.homeSidebarPane;
+        VBox homeSidebarPane = homeSidebarController.homeSidebarPane;
         homeSidebar.getChildren().add(homeSidebarPane);
     }
 }
