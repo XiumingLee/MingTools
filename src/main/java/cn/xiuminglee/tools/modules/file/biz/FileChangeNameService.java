@@ -4,6 +4,7 @@ import cn.xiuminglee.tools.modules.common.AlertComponent;
 import cn.xiuminglee.tools.modules.common.State;
 import cn.xiuminglee.tools.modules.file.biz.task.FileChangeNameServiceTask;
 import cn.xiuminglee.tools.modules.file.view.FileController;
+import cn.xiuminglee.tools.util.OSUtils;
 import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
 import javafx.stage.DirectoryChooser;
@@ -106,8 +107,8 @@ public class FileChangeNameService {
         changeNameServiceTask.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 fileController.changLabelState(fileController.changeNameStateLabel,fileController.changeNameState,State.SUCCEEDED);
-                // 打开文件夹？
-                // 判断操作系统，通过命令行的方式打开文件夹
+                // 打开文件夹
+                OSUtils.openFolder(changeNameServiceTask.file.getAbsolutePath());
             }
         });
         changeNameServiceTask.stateProperty().addListener((observable, oldValue, newValue) -> {
