@@ -3,10 +3,11 @@ BASE_DIR=.
 APP_NAME="ming-tools"
 APP_JAR="${BASE_DIR}/lib/ming-tools.jar"
 
+JAVA="${BASE_DIR}/jre/bin/java"
 JAVA_OPT=""
 SPRING_BOOT_OPT="--spring.config.location=${BASE_DIR}/conf/application.yaml"
 
-java -jar ${JAVA_OPT} ${APP_JAR} ${SPRING_BOOT_OPT} > ${APP_NAME}_start.out &
+${JAVA} -jar ${JAVA_OPT} ${APP_JAR} ${SPRING_BOOT_OPT} > ${APP_NAME}_start.out &
 
 ## 判断操作系统
 pl=echo

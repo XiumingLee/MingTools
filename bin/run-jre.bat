@@ -8,6 +8,8 @@ set APP_NAME="ming-tools"
 set APP_JAR="%BASE_DIR%\lib\ming-tools.jar"
 set "JAVA_OPT=%JAVA_OPT% -server -Xms30m -Xmx30m -Xmn20m -XX:MetaspaceSize=50m -XX:MaxMetaspaceSize=50m"
 set SPRING_BOOT_OPT="--spring.config.location=%BASE_DIR%\conf\application.yaml"
-javaw -jar  %APP_JAR% %SPRING_BOOT_OPT%_start.out
+set JAVA="%BASE_DIR%\jre\bin\javaw.exe"
+%JAVA% -jar  %APP_JAR% %SPRING_BOOT_OPT% > %APP_NAME%_start.out
 
+exit
 pause
