@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author Xiuming Lee
@@ -25,10 +26,11 @@ public class FileChangeNameServiceTask extends Service<Boolean> {
         return new Task<>() {
             @Override
             protected Boolean call() throws Exception {
-                List<File> files = FileUtils.buildFileList(file);
                 if (flag.equals(Operation.REMOVE)){
-                    FileUtils.fileListNameRemoveChar(files,removeStr);
+                    Stack<File> fileStack = FileUtils.buildFileStack(file);
+                    FileUtils.fileListNameRemoveChar(fileStack,removeStr);
                 } else {
+                    List<File> files = FileUtils.buildFileList(file);
                     FileUtils.fileListNameChangToPinyin(files);
                 }
                 return true;

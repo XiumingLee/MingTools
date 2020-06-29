@@ -73,7 +73,7 @@ public class FileChangeNameService {
             File selectedFile = fileChooser.showDialog(new Stage());
             if (selectedFile != null){
                 this.changeNameServiceTask.file = selectedFile;
-                fileController.selectedFileName.setText(selectedFile.getName());
+                fileController.selectedFileName.setText(selectedFile.getAbsolutePath());
             }
         });
     }
