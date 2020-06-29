@@ -77,6 +77,11 @@ public class FileUtils {
         buildFileList(file,fileList);
         return fileList;
     }
+    public static Stack<File> buildFileStack(File file) {
+        Stack<File> fileStack = new Stack<>();
+        buildFileList(file,fileStack);
+        return fileStack;
+    }
 
     private static void buildFileList(File file, List<File> list) {
         if (file.isDirectory()) {
@@ -91,22 +96,4 @@ public class FileUtils {
         }
     }
 
-    public static Stack<File> buildFileStack(File file) {
-        Stack<File> fileStack = new Stack<>();
-        buildFileList(file,fileStack);
-        return fileStack;
-    }
-
-    private static void buildFileStack(File file, Stack<File> stack) {
-        if (file.isDirectory()) {
-            stack.add(file);
-            File[] files = file.listFiles();
-            assert files != null;
-            for (File file1 : files) {
-                buildFileStack(file1, stack);
-            }
-        } else {
-            stack.add(file);
-        }
-    }
 }
