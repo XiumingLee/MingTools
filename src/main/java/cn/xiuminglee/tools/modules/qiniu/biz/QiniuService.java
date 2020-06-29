@@ -1,5 +1,6 @@
 package cn.xiuminglee.tools.modules.qiniu.biz;
 
+import cn.xiuminglee.tools.core.config.properties.MingToolsProperties;
 import cn.xiuminglee.tools.modules.Constant;
 import cn.xiuminglee.tools.modules.common.AlertComponent;
 import cn.xiuminglee.tools.modules.common.ClipboardUtil;
@@ -15,6 +16,7 @@ import javafx.scene.input.KeyCombination;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 
@@ -29,6 +31,8 @@ public class QiniuService {
     private QiniuController qiniuController;
     @Autowired
     private QiniuAPI qiniuAPI;
+    @Autowired
+    private MingToolsProperties mingToolsProperties;
 
     public QiniuServiceTask qiniuServiceTask;
 
@@ -98,5 +102,19 @@ public class QiniuService {
             }
         });
         // endregion QiniuServiceTask监听事件 --------------------------------------------------------------
+    }
+
+
+    /**
+     * 检查能否删除图片；
+     * @return
+     */
+    public boolean checkDelImagePath(){
+        boolean result = false;
+        String fieldText = qiniuController.textField.getText();
+        if (!StringUtils.isEmpty(fieldText) && fieldText.contains(mingToolsProperties.getQiniu().getFilePathPrefix())){
+            result = true;
+        }
+        return result;
     }
 }

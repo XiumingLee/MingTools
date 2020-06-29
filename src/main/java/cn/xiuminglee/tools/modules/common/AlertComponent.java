@@ -22,4 +22,13 @@ public class AlertComponent {
         alert.setContentText(errMsg);
         alert.showAndWait();
     }
+
+    /** 确认弹窗 */
+    public static Alert confirmAlert(String headerText,String contentText){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.titleProperty().set("确认消息");
+        alert.headerTextProperty().set(headerText);
+        alert.setContentText(contentText);
+        return alert;
+    }
 }
