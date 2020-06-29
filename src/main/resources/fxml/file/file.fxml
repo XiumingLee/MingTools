@@ -65,11 +65,12 @@
                         </HBox.margin>
                     </Label>
 
-                    <Button onAction="#handleFileChangeNameButtonAction" text="执行">
+                    <Button onAction="#handleFileChangeNameButtonAction" text="执行" />
+                    <Label>
                         <HBox.margin>
                             <Insets right="20" />
                         </HBox.margin>
-                    </Button>
+                    </Label>
                 </HBox>
             </VBox>
         </Tab>

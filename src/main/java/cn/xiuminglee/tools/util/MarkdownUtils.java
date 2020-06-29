@@ -3,8 +3,6 @@ package cn.xiuminglee.tools.util;
 import cn.xiuminglee.tools.core.exception.MingToolsException;
 import org.springframework.util.StringUtils;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
 
 /**
@@ -49,9 +47,5 @@ public class MarkdownUtils {
             throw new MingToolsException("请检查七牛云图片的地址是否正确！");
         }
         return imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
-    }
-
-    public static void main(String[] args) {
-        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
     }
 }

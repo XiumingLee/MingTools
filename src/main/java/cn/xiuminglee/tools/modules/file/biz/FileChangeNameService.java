@@ -49,7 +49,8 @@ public class FileChangeNameService {
         changeNameServiceTask.start();
     }
 
-    public void init(){
+    public void initChangeNameService(FileController fileController){
+        this.fileController = fileController;
         initFileChangeNameServiceTask();
         initDirectoryChooser();
         initRadioButton();

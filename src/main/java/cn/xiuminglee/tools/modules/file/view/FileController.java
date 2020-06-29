@@ -56,6 +56,6 @@ public class FileController extends FXMLController {
 
     @Override
     protected void initController() {
-        fileChangeNameService.init();
+        fileChangeNameService.initChangeNameService(this);
     }
 }
