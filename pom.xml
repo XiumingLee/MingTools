@@ -138,9 +138,14 @@
                                 <resource>
                                     <directory>src/main/resources</directory>
                                     <filtering>true</filtering>
+                                    <!--包含-->
                                     <includes>
                                         <include>**/*.yaml</include>
                                     </includes>
+                                    <!--排除-->
+                                    <excludes>
+                                        <exclude>**/*-dev.yaml</exclude>
+                                    </excludes>
                                 </resource>
                             </resources>
                         </configuration>
