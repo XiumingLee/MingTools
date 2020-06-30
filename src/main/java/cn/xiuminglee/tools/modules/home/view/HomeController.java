@@ -26,4 +26,8 @@ public class HomeController extends FXMLController {
         VBox homeSidebarPane = homeSidebarController.homeSidebarPane;
         homeSidebar.getChildren().add(homeSidebarPane);
     }
+
+    public HomeController() {
+        System.out.println("HomeController construct");
+    }
 }

@@ -101,4 +101,7 @@ public class HomeSidebarController extends FXMLController {
         stage.getScene().getAccelerators().clear();
     }
 
+    public HomeSidebarController() {
+        System.out.println("HomeSidebarController construct");
+    }
 }

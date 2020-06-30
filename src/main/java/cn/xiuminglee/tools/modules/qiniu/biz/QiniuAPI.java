@@ -10,7 +10,6 @@ import com.qiniu.storage.Region;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -24,8 +23,7 @@ import java.util.Random;
  */
 @Service
 public class QiniuAPI {
-    @Autowired
-    private MingToolsProperties mingToolsProperties;
+    private final MingToolsProperties mingToolsProperties;
 
     private String pathPreFix;
     private String bucketName;
@@ -33,6 +31,11 @@ public class QiniuAPI {
     private Auth auth;
     private Configuration cfg;
     private UploadManager uploadManager;
+
+    public QiniuAPI(MingToolsProperties mingToolsProperties) {
+        System.out.println("QiniuAPI construct");
+        this.mingToolsProperties = mingToolsProperties;
+    }
 
     /**
      * 普通上传
@@ -75,5 +78,4 @@ public class QiniuAPI {
         cfg = new Configuration(Region.region1());
         uploadManager = new UploadManager(cfg);
     }
-
 }

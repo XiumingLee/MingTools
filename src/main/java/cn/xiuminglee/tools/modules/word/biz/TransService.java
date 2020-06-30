@@ -12,6 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @author Xiuming Lee
  * @description 翻译相关,分担WordController的业务职能
@@ -30,7 +32,8 @@ public class TransService {
     public TransServiceTask transServiceTask = null;
     // endregion 属性 --------------------------------------------------------------
 
-    public void initTransService(){
+    public void initTransService(WordController wordController){
+        this.wordController = wordController;
         initChoiceBoxes();
     }
 

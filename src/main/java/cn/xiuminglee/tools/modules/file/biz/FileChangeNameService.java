@@ -24,7 +24,7 @@ import java.io.File;
 @Slf4j
 public class FileChangeNameService {
 
-    @Autowired
+
     private FileController fileController;
 
     private FileChangeNameServiceTask changeNameServiceTask;
@@ -130,5 +130,10 @@ public class FileChangeNameService {
             }
         });
         // endregion FileChangeNameServiceTask监听事件 --------------------------------------------------------------
+    }
+
+    @Autowired
+    public void setFileController(FileController fileController) {
+        this.fileController = fileController;
     }
 }

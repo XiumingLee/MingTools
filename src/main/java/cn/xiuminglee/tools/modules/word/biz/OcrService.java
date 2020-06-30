@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 
 /**
@@ -39,7 +40,8 @@ public class OcrService {
     private OcrServiceTask ocrFXService = null;
     // endregion 属性 --------------------------------------------------------------
 
-    public void initOcrService(){
+    public void initOcrService(WordController wordController){
+        this.wordController = wordController;
         initOcrChoiceBox();
     }
 

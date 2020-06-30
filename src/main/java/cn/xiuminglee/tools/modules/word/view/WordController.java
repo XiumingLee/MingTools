@@ -62,8 +62,8 @@ public class WordController extends FXMLController {
 
     @Override
     protected void initController() {
-        ocrService.initOcrService();
-        transService.initTransService();
+        ocrService.initOcrService(this);
+        transService.initTransService(this);
     }
 
     /**

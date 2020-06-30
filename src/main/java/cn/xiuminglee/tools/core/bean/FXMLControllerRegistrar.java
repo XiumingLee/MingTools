@@ -33,6 +33,7 @@ public class FXMLControllerRegistrar implements BeanPostProcessor {
      */
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("Before：" + beanName);
         Class<?> beanClass = bean.getClass();
         if (beanClass.isAnnotationPresent(FXMLView.class)) {
             beanFXMLControllerVerifier(bean,beanName);
@@ -61,6 +62,7 @@ public class FXMLControllerRegistrar implements BeanPostProcessor {
      */
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("After：" + beanName);
         Class<?> beanClass = bean.getClass();
         if (beanClass.isAnnotationPresent(FXMLView.class)) {
             FXMLController controller = (FXMLController)bean;
