@@ -33,7 +33,6 @@ public class QiniuAPI {
     private UploadManager uploadManager;
 
     public QiniuAPI(MingToolsProperties mingToolsProperties) {
-        System.out.println("QiniuAPI construct");
         this.mingToolsProperties = mingToolsProperties;
     }
 

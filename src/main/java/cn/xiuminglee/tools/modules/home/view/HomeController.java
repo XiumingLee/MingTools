@@ -27,7 +27,4 @@ public class HomeController extends FXMLController {
         homeSidebar.getChildren().add(homeSidebarPane);
     }
 
-    public HomeController() {
-        System.out.println("HomeController construct");
-    }
 }
