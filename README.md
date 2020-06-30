@@ -16,9 +16,10 @@
   - 将文件名修改为汉语拼音。
 
 ## 功能预览
-![](docs/img/qiniu.png)
-![](docs/img/ocr_trans.jpg)
-![](docs/img/file.png)
+
+![](docs/img/qiniu.png?raw=true)
+![](docs/img/ocr_trans.jpg?raw=true)
+![](docs/img/file.png?raw=true)
 
 ## 功能使用
 
@@ -109,3 +110,8 @@ ming:
 > - #### windows
 >
 > 双击`run.bat`即可
+
+## 下载地址
+
+[下载地址](https://github.com/XiumingLee/MingTools/releases)
+
