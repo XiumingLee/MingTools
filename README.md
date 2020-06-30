@@ -2,6 +2,10 @@
 基于Spring Boot、JavaFX的桌面端工具集合，不断完善。
 
 > 适用于 `Mac`、`Windows`和`Linux`。要求Java11及以上版本
+>
+> Gitee：https://gitee.com/xiuminglee/MingTools
+>
+> GitHub：https://github.com/XiumingLee/MingTools
 
 ## 功能简介
 
