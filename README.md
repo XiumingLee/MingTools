@@ -1,7 +1,7 @@
 # MingTools
 基于Spring Boot、JavaFX的桌面端工具集合，不断完善。
 
-> 适用于 `Mac`、`Windows`和`Linux`。
+> 适用于 `Mac`、`Windows`和`Linux`。要求Java11及以上版本
 
 ## 功能简介
 
@@ -16,9 +16,9 @@
   - 将文件名修改为汉语拼音。
 
 ## 功能预览
-<img src="./docs/img/qiniu.png" style="zoom:30%;" />
-<img src="./docs/img/ocr_trans.jpg" style="zoom:30%;" />
-<img src="./docs/img/file.png" style="zoom:30%;" />
+![](./docs/img/qiniu.png)
+![](./docs/img/ocr_trans.jpg)
+![](./docs/img/file.png)
 
 ## 功能使用
 
@@ -59,5 +59,5 @@ ming:
       file-path-prefix: 文件地址前缀，cdn地址
 ```
 
-> **注意：**不使用的功能，可以不填写为自己的key和秘钥，但是不要删除或只为空。
+> `注意：`不使用的功能，可以不填写为自己的key和秘钥，但是不要删除或置为空。
 
