@@ -9,22 +9,15 @@ import javafx.beans.value.ChangeListener;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 
 /**
  * @author Xiuming Lee
  * @description 翻译相关,分担WordController的业务职能
  */
-@Service
 @Slf4j
 public class TransService {
-    @Autowired
     private WordController wordController;
     /** 百度相关 */
-    @Autowired
     private BaiduService baiduService;
 
     // region 属性 --------------------------------------------------------------
@@ -32,8 +25,10 @@ public class TransService {
     public TransServiceTask transServiceTask = null;
     // endregion 属性 --------------------------------------------------------------
 
-    public void initTransService(WordController wordController){
+
+    public TransService(WordController wordController, BaiduService baiduService) {
         this.wordController = wordController;
+        this.baiduService = baiduService;
         initChoiceBoxes();
     }
 

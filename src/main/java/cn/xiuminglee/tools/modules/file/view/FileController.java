@@ -20,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @FXMLView(fxmlPath = "fxml/file/file.fxml")
 public class FileController extends FXMLController {
 
-    @Autowired
     private FileChangeNameService fileChangeNameService;
 
     public VBox fileBox;
@@ -56,6 +55,6 @@ public class FileController extends FXMLController {
 
     @Override
     protected void initController() {
-        fileChangeNameService.initChangeNameService(this);
+        this.fileChangeNameService = new FileChangeNameService(this);
     }
 }

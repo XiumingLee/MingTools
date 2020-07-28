@@ -4,6 +4,7 @@ import cn.xiuminglee.tools.core.bean.FXMLController;
 import cn.xiuminglee.tools.core.bean.annotation.FXMLView;
 import cn.xiuminglee.tools.modules.common.AlertComponent;
 import cn.xiuminglee.tools.modules.common.State;
+import cn.xiuminglee.tools.modules.word.biz.BaiduService;
 import cn.xiuminglee.tools.modules.word.biz.OcrService;
 import cn.xiuminglee.tools.modules.word.biz.TransService;
 import cn.xiuminglee.tools.modules.word.biz.element.LanguageType;
@@ -31,8 +32,8 @@ public class WordController extends FXMLController {
     // region 其他服务模块 --------------------------------------------------------------
     /** 百度相关 */
     @Autowired
+    private BaiduService baiduService;
     private OcrService ocrService;
-    @Autowired
     private TransService transService;
     // endregion 其他服务模块 --------------------------------------------------------------
 
@@ -62,8 +63,8 @@ public class WordController extends FXMLController {
 
     @Override
     protected void initController() {
-        ocrService.initOcrService(this);
-        transService.initTransService(this);
+        this.ocrService = new OcrService(this,this.baiduService);
+        this.transService = new TransService(this,this.baiduService);
     }
 
     /**

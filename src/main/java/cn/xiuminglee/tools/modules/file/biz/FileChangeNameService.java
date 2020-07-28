@@ -10,8 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.io.File;
@@ -20,15 +18,20 @@ import java.io.File;
  * @author Xiuming Lee
  * @description 修改文件名称
  */
-@Service
 @Slf4j
 public class FileChangeNameService {
-
 
     private FileController fileController;
 
     private FileChangeNameServiceTask changeNameServiceTask;
 
+    public FileChangeNameService(FileController fileController) {
+        this.fileController = fileController;
+        initFileChangeNameServiceTask();
+        initDirectoryChooser();
+        initRadioButton();
+        initChangeNameRemoveStrTextField();
+    }
 
 
     /** 执行重命名逻辑  */
@@ -47,14 +50,6 @@ public class FileChangeNameService {
         }
         fileController.changLabelState(fileController.changeNameStateLabel,fileController.changeNameState, State.RUNNING);
         changeNameServiceTask.start();
-    }
-
-    public void initChangeNameService(FileController fileController){
-        this.fileController = fileController;
-        initFileChangeNameServiceTask();
-        initDirectoryChooser();
-        initRadioButton();
-        initChangeNameRemoveStrTextField();
     }
 
 
@@ -130,10 +125,5 @@ public class FileChangeNameService {
             }
         });
         // endregion FileChangeNameServiceTask监听事件 --------------------------------------------------------------
-    }
-
-    @Autowired
-    public void setFileController(FileController fileController) {
-        this.fileController = fileController;
     }
 }

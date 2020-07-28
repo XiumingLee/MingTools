@@ -10,7 +10,7 @@
     </parent>
     <groupId>cn.xiuminglee</groupId>
     <artifactId>ming-tools</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>ming-tools</name>
     <description>基于Spring Boot、JavaFX的桌面端工具集合，不断完善。</description>
 

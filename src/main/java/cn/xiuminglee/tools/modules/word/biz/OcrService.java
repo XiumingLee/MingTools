@@ -13,35 +13,30 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 
 /**
  * @author Xiuming Lee
  * @description OCR相关的方法，承接WordController的业务操作。
  */
-@Service
 @Slf4j
 public class OcrService {
 
     // region 其他服务模块 --------------------------------------------------------------
     /** 百度相关 */
-    @Autowired
     private BaiduService baiduService;
     // endregion 其他服务模块 --------------------------------------------------------------
-
-    @Autowired
     private WordController wordController;
 
     // region 属性 --------------------------------------------------------------
     private OcrServiceTask ocrFXService = null;
     // endregion 属性 --------------------------------------------------------------
 
-    public void initOcrService(WordController wordController){
+
+    public OcrService(WordController wordController,BaiduService baiduService) {
         this.wordController = wordController;
+        this.baiduService = baiduService;
         initOcrChoiceBox();
     }
 
