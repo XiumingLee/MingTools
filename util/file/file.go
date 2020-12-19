@@ -23,11 +23,24 @@ func RenameFiles(dirname string, removeStr string) {
 		removeStrFromName(filePathInfo, removeStr)
 	}
 }
+func removeStrFromName(filePathinfo PathInfo, str string) {
+	fileName := filePathinfo.FileIno.Name()
+	if strings.Contains(fileName, str) {
+		oldName := filePathinfo.ParentPath + string(filepath.Separator) + fileName
+		newFileName := strings.ReplaceAll(fileName, str, "")
+		newName := filePathinfo.ParentPath + string(filepath.Separator) + newFileName
+		os.Rename(oldName, newName)
+	}
+}
+
+// 获取文件夹下的所有文件
 func getAllFile(dirname string) *list.List {
 	fileList := list.New()
 	getFileToList(dirname, fileList)
 	return fileList
 }
+
+// 将文件封装到list中
 func getFileToList(dirname string, fileList *list.List) {
 	fs, _ := ioutil.ReadDir(dirname)
 	for _, v := range fs {
@@ -38,15 +51,6 @@ func getFileToList(dirname string, fileList *list.List) {
 			filePathInfo := PathInfo{dirname, v}
 			fileList.PushBack(filePathInfo)
 		}
-	}
-}
-func removeStrFromName(filePathinfo PathInfo, str string) {
-	fileName := filePathinfo.FileIno.Name()
-	if strings.Contains(fileName, str) {
-		oldName := filePathinfo.ParentPath + string(filepath.Separator) + fileName
-		newFileName := strings.ReplaceAll(fileName, str, "")
-		newName := filePathinfo.ParentPath + string(filepath.Separator) + newFileName
-		os.Rename(oldName, newName)
 	}
 }
 
