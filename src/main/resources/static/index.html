@@ -10,19 +10,7 @@
 </head>
 <body>
 <div id="app">
-
-    <h1>Hello App!</h1>
-    <p>
-        <!-- 使用 router-link 组件来导航. -->
-        <!-- 通过传入 `to` 属性指定链接. -->
-        <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-        <router-link to="/login">登录</router-link>
-        <router-link to="/register">注册</router-link>
-    </p>
-    <!-- 路由出口 -->
-    <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
-
 </div>
 </body>
 <script type="module">
@@ -31,13 +19,12 @@
     const app = new Vue({
         el:'#app',
         data:{},
-        mounted() {
-            console.log("我是mounted函数");
+        created() {
+            this.$router.replace({ path: '/' })
         },
-        methods: {
-
-        },
-        router:router
+        mounted() {},
+        methods: {},
+        router:router,
     })
 </script>
 </html>

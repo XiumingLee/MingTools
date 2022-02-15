@@ -1,16 +1,45 @@
 import  '../js/vue-router@3.5.3.js'
-
+import Layout from '../layout/index.js'
 // 静态路由
 const constantRouterMap = [
     {
+        path: '',
+        component: Layout,
+        redirect: 'index',
+        children: [
+            {
+                path: 'index',
+                component: () => import('../../views/login.js'),
+                name: 'Index',
+                meta: { title: '首页', icon: 'dashboard', affix: true }
+            }
+        ]
+    },
+    {
+        path: '/redirect',
+        component: Layout,
+        hidden: true,
+        children: [
+            {
+                path: '/redirect/:path(.*)',
+                component: () => import('../../views/redirect.js')
+            }
+        ]
+    },
+    {
+        path: '/404',
+        component: () => import('../../views/error/404.js'),
+        hidden: true
+    },
+    {
         path:'/login',
-        component:()=>import('../../module/login.js'),
+        component:()=>import('../../views/login.js'),
         meta:{ title:'首页' },
         hidden: true
     },
     {
         path:'/register',
-        component:()=>import('../../module/register.js'),
+        component:()=>import('../../views/register.js'),
         meta:{ title:'request' },
         hidden: true
     },

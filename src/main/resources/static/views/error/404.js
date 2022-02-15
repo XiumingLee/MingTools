@@ -1,7 +1,7 @@
-import {get} from "../common/request/request.js";
+import {get} from "../../common/request/request.js";
 
 export default {
-    name: 'login',
+    name: '404',
     data: function () {
         return {
             message: 'Hello Vue!'
@@ -14,10 +14,10 @@ export default {
         test() {
             console.log("我是test方法")
             get("/test/hello").then(res => {
+                this.message = res;
                 console.log(res)
             })
         }
     },
-    template: `<button v-on:click="test"> {{ message }} </button>`
+    template: `<h3 v-on:click="test"> 404页面 {{ message }} </h3>`
 }
-
