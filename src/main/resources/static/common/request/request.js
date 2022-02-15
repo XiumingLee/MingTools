@@ -1,5 +1,5 @@
-import axios from 'axios';
-import Config from '@/config';
+import '../js/axios0.26.min';
+import Config from '../config/config.js';
 
 // 创建axios实例
 const service = axios.create({
