@@ -3,3 +3,7 @@
 - vue-router：https://unpkg.com/vue-router@3    https://v3.router.vuejs.org/zh/guide/
 - axios：https://unpkg.com/axios/dist/axios.min.js    https://axios-http.com/
 - element-ui：https://element.eleme.cn/#/zh-CN/component/installation
+
+
+### 页面整体布局
+https://gitee.com/y_project/RuoYi-Vue/tree/master/ruoyi-ui/src/layout
