@@ -3,8 +3,8 @@ import "../js/axios0.26.js";
 
 // 创建axios实例
 const service = axios.create({
-    baseURL: Config.request_baseUrl, // api 的 base_url
-    timeout: Config.request_timeout // 请求超时时间
+    baseURL: Config.request.baseUrl, // api 的 base_url
+    timeout: Config.request.timeout // 请求超时时间
 })
 
 // request拦截器

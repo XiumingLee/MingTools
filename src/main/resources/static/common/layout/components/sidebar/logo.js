@@ -1,14 +1,15 @@
+import Config from '../../../config/config.js';
 export default {
     template: `
-  <div class="sidebar-logo-container" :class="{'collapse':collapse}" style="{ background-color: #304156 }">
+  <div class="sidebar-logo-container" :class="{'collapse':collapse}" :style="{ backgroundColor: themeStyle.menuBackground  }">
     <transition name="sidebarLogoFade">
       <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo" />
-        <h1 v-else class="sidebar-title" style="{ color: #ffffff }">{{ title }} </h1>
+        <h1 v-else class="sidebar-title" :style="{ color: themeStyle.menuColor }">{{ title }} </h1>
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo" />
-        <h1 class="sidebar-title" style="{color: #ffffff}">{{ title }} </h1>
+        <h1 class="sidebar-title" :style="{color: themeStyle.menuColor }">{{ title }} </h1>
       </router-link>
     </transition>
   </div>
@@ -20,6 +21,11 @@ export default {
             required: true
         }
     },
+    computed: {
+        themeStyle() {
+            return Config.style;
+        },
+    },
     data: function () {
         return {
             title: 'MingTools工具集',
@@ -29,6 +35,5 @@ export default {
     mounted() {
     },
     methods: {
-        test() {}
     }
 }
