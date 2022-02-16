@@ -1,13 +1,14 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>这里是404页面</title>
+    <meta charset="UTF-8">
 </head>
 <body>
-<h1>404xxxx</h1>
 </body>
 <script>
-    // 在此页面定向到`/?redirect=404`
+    // 此页面是后台出现404错误时显示，这里转跳到Vue前端的404页面。
+    window.onload = function () {
+        window.location.replace("/?redirect=404");
+    }
 </script>
 </html>

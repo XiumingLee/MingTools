@@ -8,7 +8,7 @@ const constantRouterMap = [
         redirect: 'index',
         children: [
             {
-                path: 'index',
+                path: '',
                 component: () => import('../../views/login.js'),
                 name: 'Index',
                 meta: { title: '首页', icon: 'dashboard', affix: true }

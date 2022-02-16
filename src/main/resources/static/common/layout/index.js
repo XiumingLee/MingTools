@@ -1,10 +1,9 @@
+import {Sidebar} from './components/index.js'
+
 export default {
     template: `
 <div>
-    布局页
-    <p>
-        <router-link to="/redirect/register">注册</router-link>
-    </p>
+    <sidebar class="sidebar-container"/>
     <!-- 以下存放二级页面 -->
     <section class="app-main">
         <transition name="fade-transform" mode="out-in">
@@ -14,6 +13,7 @@ export default {
 </div>
     `,
     name: 'Layout',
+    components: {Sidebar},
     data: function () {
         return {
             message: 'Hello Vue!'
