@@ -15,7 +15,10 @@
 </div>
 </body>
 <script type="module">
-    import router from "./common/router/router.js"
+    import router from "./common/router/router.js";
+    import {SvgIcon} from "./common/components/index.js";
+    Vue.component('svg-icon', SvgIcon)
+
     const app = new Vue({
         el:'#app',
         data:{},
