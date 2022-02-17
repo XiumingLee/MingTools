@@ -1,20 +1,14 @@
-import {Sidebar,Navbar} from './components/index.js'
+// 模板文件
+import {Sidebar} from './components/index.js'
 
 export default {
     template: `
 <div>
-    <sidebar class="sidebar-container"/>
-    <navbar />
-    <!-- 以下存放二级页面 -->
-    <section class="app-main">
-        <transition name="fade-transform" mode="out-in">
-          <router-view :key="key" />
-        </transition>
-    </section>
+    <h1>我是模板文件！！！</h1>
 </div>
     `,
-    name: 'Layout',
-    components: {Sidebar,Navbar},
+    name: 'Template',
+    components: {Sidebar},
     data: function () {
         return {
             message: 'Hello Vue!'
@@ -25,9 +19,7 @@ export default {
             return this.$route.path
         }
     },
-    mounted() {
-
-    },
+    mounted() {},
     methods: {
         test() {
             console.log("我是test方法")
