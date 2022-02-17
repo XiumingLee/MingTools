@@ -2,10 +2,10 @@
   <div :class="classObj" class="app-wrapper" :style="{'--current-color': theme}">
     <div v-if="sidebar.opened" class="drawer-bg" @click="handleClickOutside"/>
     <sidebar class="sidebar-container"/>
-    <div :class="{hasTagsView:needTagsView}" class="main-container">
-      <div :class="{'fixed-header':fixedHeader}">
+    <div class="hasTagsView" class="main-container">
+      <div class="fixed-header">
         <navbar />
-        <tags-view v-if="needTagsView" />
+        <tags-view />
       </div>
       <app-main />
     </div>
@@ -30,19 +30,13 @@ export default {
       theme: state => state.settings.theme,
       sideTheme: state => state.settings.sideTheme,
       sidebar: state => state.app.sidebar,
-      needTagsView: state => state.settings.tagsView,
-      fixedHeader: state => state.settings.fixedHeader
     }),
     classObj() {
       return {
         hideSidebar: !this.sidebar.opened,
         openSidebar: this.sidebar.opened,
         withoutAnimation: this.sidebar.withoutAnimation,
-        mobile: this.device === 'mobile'
       }
-    },
-    variables() {
-      return variables;
     }
   },
   methods: {

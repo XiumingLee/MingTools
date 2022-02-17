@@ -1,6 +1,3 @@
-// 模板文件
-import {Sidebar} from './components/index.js'
-
 export default {
     template: `
 <div>
@@ -8,7 +5,7 @@ export default {
 </div>
     `,
     name: 'Template',
-    components: {Sidebar},
+    components: {},
     data: function () {
         return {
             message: 'Hello Vue!'
@@ -27,5 +24,5 @@ export default {
                 console.log(res)
             })
         }
-    },
+    }
 }
