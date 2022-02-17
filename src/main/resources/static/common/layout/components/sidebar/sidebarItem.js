@@ -1,4 +1,5 @@
 import {isExternal} from '../../../utils/validate.js';
+import {pathResolve} from '../../../utils/path.js';
 import Item from './item.js'
 import AppLink from './link.js'
 
@@ -62,8 +63,6 @@ export default {
     },
     methods: {
         hasOneShowingChild(children = [], parent) {
-            console.log(children);
-            console.log(parent);
             if (!children) {
                 children = [];
             }
@@ -76,12 +75,10 @@ export default {
                     return true
                 }
             })
-
             // When there is only one child router, the child router is displayed by default
             if (showingChildren.length === 1) {
                 return true
             }
-
             // Show parent if there are no child router to display
             if (showingChildren.length === 0) {
                 this.onlyOneChild = {...parent, path: '', noShowingChildren: true}
@@ -91,29 +88,20 @@ export default {
             return false
         },
         resolvePath(routePath, routeQuery) {
-            console.log(routePath);
-            console.log(routeQuery);
-            console.log("----------------------------------------------");
             if (isExternal(routePath)) {
                 return routePath
             }
             if (isExternal(this.basePath)) {
                 return this.basePath
             }
-
-            // todo; 以下需要进行path解析
             if (routeQuery) {
                 let query = JSON.parse(routeQuery);
-                console.log(this.basePath);
-                console.log(routePath);
-                console.log(query);
                 //return { path: path.resolve(this.basePath, routePath), query: query }
-                return {path: routePath, query: query}
+                return { path: pathResolve(this.basePath, routePath), query: query };
             }
             //return path.resolve(this.basePath, routePath)
-            console.log("--------------this.basePath：----------");
-            console.log(this.basePath);
-            return routePath;
+            return pathResolve(this.basePath, routePath);
+
         }
     }
 }
