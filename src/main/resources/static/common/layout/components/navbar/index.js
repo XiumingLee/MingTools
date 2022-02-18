@@ -2,12 +2,12 @@ import Hamburger from './hamburger/index.js'
 import Breadcrumb from './breadcrumb/index.js'
 import Github from './github/index.js'
 
-import AppConfig from '../../../config/config.js'
+import  '../../../js/vuex@3.6.2.js'
 
 export default {
     template: `
 <div class="navbar">
-    <hamburger id="hamburger-container" :is-active="sidebarOpened" class="hamburger-container" @toggleClick="toggleSideBar" />
+    <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container"/>
 
@@ -44,19 +44,18 @@ export default {
     components: {Hamburger,Breadcrumb,Github},
     data: function () {
         return {
-            avatar: '/common/assets/image/avatar.jpg'
+            avatar: '/common/assets/image/avatar.jpg',
         }
     },
     computed: {
-        sidebarOpened() {
-            return AppConfig.settings.sidebar.opened;
-        }
+        ...Vuex.mapGetters([
+            'sidebar'
+        ]),
     },
     mounted() {},
     methods: {
         toggleSideBar() {
-            AppConfig.settings.sidebar.opened = !AppConfig.settings.sidebar.opened;
-            console.log("点击了toggleSideBar！！")
+            this.$store.dispatch('app/toggleSideBar')
         },
         async logout() {
             this.$confirm('确定注销并退出系统吗？', '提示', {

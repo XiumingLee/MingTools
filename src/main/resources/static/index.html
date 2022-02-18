@@ -8,6 +8,7 @@
     <script src="./common/js/element-ui@2.15.6.js"></script>
     <link href="./common/css/element-ui@2.15.6.css" rel="stylesheet">
     <link href="./common/css/index.css" rel="stylesheet">
+    <link href="./views/index.css" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -16,16 +17,29 @@
 </body>
 <script type="module">
     import router from "./common/router/router.js";
+    import store from './common/store/index.js'
     import {SvgIcon} from "./common/components/index.js";
-    Vue.component('svg-icon', SvgIcon)
+    import plugins from "./common/plugins/index.js";
+
+    // 动态添加可访问路由表
+    store.dispatch('GenerateRoutes').then(accessRoutes => {
+        // 根据roles权限生成可访问的路由表
+        router.addRoutes(accessRoutes) // 动态添加可访问路由表
+    })
+
+    Vue.component('svg-icon', SvgIcon);
+    Vue.use(plugins);
 
     const app = new Vue({
-        el:'#app',
-        data:{},
-        created() {},
-        mounted() {},
+        el: '#app',
+        data: {},
+        created() {
+        },
+        mounted() {
+        },
         methods: {},
-        router:router,
+        router: router,
+        store
     })
 </script>
 </html>

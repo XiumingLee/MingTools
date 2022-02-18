@@ -16,10 +16,4 @@ export default {
         menuBackground: "#304156",
         menuColor: "#ffffff",
     },
-
-
-    /** 系统设置相关 */
-    settings: {
-        sidebar: {opened: true}
-    }
 }

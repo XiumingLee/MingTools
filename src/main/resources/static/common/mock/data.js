@@ -17,7 +17,7 @@ export const Routers = [
                 "name": "User",
                 "path": "user",
                 "hidden": false,
-                "component": "system/user/index",
+                "component": "/views/register.js",
                 "meta": {
                     "title": "用户管理",
                     "icon": "user",

@@ -44,15 +44,12 @@ export default {
     // todo: 修改 $store相关内容 ，使用 $store 搜索
     computed: {
         visitedViews() {
-            //return this.$store.state.tagsView.visitedViews
-            return {};
+            return this.$store.state.tagsView.visitedViews;
         },
         routes() {
-            //return this.$store.state.permission.routes
-            return []
+            return this.$store.state.menu.routes
         },
         theme() {
-            //return this.$store.state.settings.theme;
             return AppConfig.style.theme;
         }
     },
@@ -127,14 +124,14 @@ export default {
             for (const tag of affixTags) {
                 // Must have tag name
                 if (tag.name) {
-                    //this.$store.dispatch('tagsView/addVisitedView', tag)
+                    this.$store.dispatch('tagsView/addVisitedView', tag)
                 }
             }
         },
         addTags() {
             const { name } = this.$route
             if (name) {
-                //this.$store.dispatch('tagsView/addView', this.$route)
+                this.$store.dispatch('tagsView/addView', this.$route)
             }
             return false
         },
@@ -146,7 +143,7 @@ export default {
                         this.$refs.scrollPane.moveToTarget(tag)
                         // when query is different then update
                         if (tag.to.fullPath !== this.$route.fullPath) {
-                            //this.$store.dispatch('tagsView/updateVisitedView', this.$route)
+                            this.$store.dispatch('tagsView/updateVisitedView', this.$route)
                         }
                         break
                     }
@@ -157,6 +154,7 @@ export default {
             this.$tab.refreshPage(view);
         },
         closeSelectedTag(view) {
+            console.log("关闭标签页！")
             this.$tab.closePage(view).then(({ visitedViews }) => {
                 if (this.isActive(view)) {
                     this.toLastView(visitedViews, view)

@@ -1,12 +1,12 @@
 import Logo from "./logo.js";
 import SidebarItem from "./sidebarItem.js";
 import Config from '../../../config/config.js';
-import {Routers} from '../../../mock/data.js';
+import '../../../js/vuex@3.6.2.js'
 
 export default {
     template: `
-  <div :class="{'has-logo':showLogo}" :style="{ backgroundColor: themeStyle.menuBackground }">
-    <logo v-if="showLogo" :collapse="isCollapse"/>
+  <div class="has-logo" :style="{ backgroundColor: themeStyle.menuBackground }">
+    <logo :collapse="isCollapse"/>
     <el-scrollbar :class="themeStyle.sideTheme" wrap-class="scrollbar-wrapper">
       <el-menu
           :default-active="activeMenu"
@@ -32,9 +32,7 @@ export default {
     components: {Logo, SidebarItem},
     computed: {
         // 要展示的路由
-        sidebarRouters() {
-            return Routers;
-        },
+        ...Vuex.mapGetters(["sidebarRouters","sidebar"]),
         activeMenu() {
             const route = this.$route;
             const {meta, path} = route;
@@ -47,11 +45,8 @@ export default {
         themeStyle() {
             return Config.style;
         },
-        showLogo() {
-            return true;
-        },
         isCollapse() {
-            return false;
+            return !this.sidebar.opened;
         }
     },
     data: function () {

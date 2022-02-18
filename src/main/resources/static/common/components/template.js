@@ -26,3 +26,23 @@ export default {
         }
     }
 }
+
+/**
+ export default {} 中this的使用
+
+ // 作用域1
+ export default {
+    getA: () => {
+    	// 作用域2
+        this.getC() // this无法使用
+    },
+    getB() {
+    	// 作用域1
+        this.getC() // this正常使用
+    },
+    getC: () => {
+    	// 作用域3
+        console.log('function getC')
+    }
+}
+ */
