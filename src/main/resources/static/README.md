@@ -4,6 +4,7 @@
 - vuex：https://unpkg.com/vuex@3    https://v3.vuex.vuejs.org/zh/installation.html
 - axios：https://unpkg.com/axios/dist/axios.min.js    https://axios-http.com/
 - element-ui：https://element.eleme.cn/#/zh-CN/component/installation
+- vue2-sfc-loader：https://github.com/FranckFreiburger/vue3-sfc-loader 用于直接加载vue文件展示
 
 
 ### 页面整体布局

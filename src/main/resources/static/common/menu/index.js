@@ -26,6 +26,18 @@ export const Routers = [
                     "link": null
                 }
             },
+            {
+                "name": "Time",
+                "path": "time",
+                "hidden": false,
+                "component": "/views/tool/time/index.js",
+                "meta": {
+                    "title": "时间工具",
+                    "icon": "time",
+                    "noCache": false,
+                    "link": null
+                }
+            },
         ]
     },
 ]

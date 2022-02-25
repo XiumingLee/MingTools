@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>直接加载vue文件，用于页面最初布局和测试时使用</title>
+    <script src="./common/js/vue@2.js"></script>
+    <script src="common/js/vue2-sfc-loader@0.8.4.js"></script>
+    <script src="./common/js/element-ui@2.15.6.js"></script>
+    <link href="./common/css/element-ui@2.15.6.css" rel="stylesheet">
+    <link href="./common/css/index.css" rel="stylesheet">
+    <link href="./views/index.css" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+
+
+</div>
+</body>
+<script type="module">
+    import store from './common/store/index.js'
+    import {SvgIcon} from "./common/components/index.js";
+    import plugins from "./common/plugins/index.js";
+
+    Vue.component('svg-icon', SvgIcon);
+    Vue.use(plugins);
+
+    /******  以下是使用vue2-sfc-loader的构建方式 *********************/
+
+
+    const {loadModule} = window['vue2-sfc-loader'];
+    const options = {
+        moduleCache: {
+            vue: Vue,
+        },
+        getFile(url) {
+            return fetch(url).then(res => res.text());
+        },
+        addStyle() {
+        }
+    }
+
+    loadModule('template.vue', options)
+        .then(component => {
+                console.log(component);
+                return new Vue({
+                    store,
+                    ...component
+                }).$mount('#app');
+            }
+        );
+
+    /******  以下是使用vue2-sfc-loader的最基础的Demo *********************/
+
+    //
+    ///* <!-- */
+    //const mainComponent = `
+    //  <template>
+    //    <span>Hello from Vue {{ require('myData').vueVersion }} !</span>
+    //  </template>
+    //`;
+    ///* --> */
+    //
+    //const {loadModule, vueVersion} = window['vue2-sfc-loader'];
+    //
+    //const options = {
+    //    moduleCache: {
+    //        vue: Vue,
+    //        myData: {
+    //            vueVersion,
+    //        }
+    //    },
+    //    getFile(url) {
+    //        if (url === '/main.vue')
+    //            return Promise.resolve(mainComponent);
+    //    },
+    //    addStyle() { /* unused here */
+    //    },
+    //}
+    //
+    //
+    //loadModule('/main.vue', options)
+    //    .then(component => new Vue(component).$mount('#app'));
+    //
+
+</script>
+</html>

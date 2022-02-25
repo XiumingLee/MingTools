@@ -11,6 +11,14 @@ export default {
         }
     },
     mounted() {
+        navigator.clipboard
+            .read()
+            .then((v) => {
+                console.log("获取剪贴板成功：", v);
+            })
+            .catch((v) => {
+                console.log("获取剪贴板失败: ", v);
+            });
     },
     methods: {
     }

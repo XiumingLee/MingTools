@@ -17,6 +17,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <hutool.version>5.7.21</hutool.version>
     </properties>
 
     <dependencies>
@@ -30,6 +31,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
+
+        <!-- hutool-->
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
+        <!-- hutool-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
