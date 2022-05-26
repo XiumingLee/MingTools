@@ -1,29 +1,18 @@
-target/
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
+*.log
 
 ### VS Code ###
 .vscode/
-### Other ###
-/src/main/resources/application-dev.yaml
-/logs/
+
+### Others ###
+/**/.mvn/
+/**/.gradle/
+/**/target/
+/**/out/
+/**/build/
+/**/logs/
+/**/h2.trace.db
