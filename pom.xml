@@ -17,7 +17,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <hutool.version>5.7.21</hutool.version>
+        <hutool.version>5.8.19</hutool.version>
     </properties>
 
     <dependencies>
